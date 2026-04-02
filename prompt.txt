@@ -5,4 +5,4 @@ Acting as a world class prompt engineer and AI agent engineer, create a comprehe
 Create that for the follow AI agent we want to prototype: teaches a person how to use AI agents, what to avoid, gives examples, does interactive practice simulating/doing AI agent use then facilitating feedback and reflection. 
 
 
-teaches a person how to BUILD AI agents, what to avoid, gives examples, does interactive practice simulating/doing AI agent use then facilitating feedback and reflection. Teaches critical and ethical building of AI
+teaches a person  how to BUILD AI agents, what to avoid, gives examples, does interactive practice simulating/doing AI agent use then facilitating feedback and reflection. Teaches critical and ethical building of AI
