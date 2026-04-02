@@ -1,0 +1,50 @@
+{
+  "cli_version": "0.4.9",
+  "checkpoint_id": "a17e91567a50",
+  "session_id": "669b8342-19db-4be0-bbb0-b40dbcf4c031",
+  "strategy": "manual-commit",
+  "created_at": "2026-04-02T20:14:20.972045Z",
+  "branch": "master",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "data/curricula/track-build.json",
+    "data/curricula/track-use.json",
+    "data/examples/negative-interactions.json",
+    "data/examples/positive-interactions.json",
+    "data/exercises/build-exercises.json",
+    "data/exercises/use-exercises.json",
+    "data/personas/david.json",
+    "data/personas/jordan.json",
+    "data/personas/kojo.json",
+    "data/personas/maya.json",
+    "data/users/progress-schema.json",
+    "data/users/user-profiles.json",
+    "docs/specs/agent-design.md",
+    "docs/superpowers/plans/2026-04-02-ai-tutor-agent.md",
+    "skills/ai-tutor-build-agents.md",
+    "skills/ai-tutor-ethics.md",
+    "skills/ai-tutor-onboard.md",
+    "skills/ai-tutor-practice.md",
+    "skills/ai-tutor-reflect.md",
+    "skills/ai-tutor-router.md",
+    "skills/ai-tutor-use-agents.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "4f4369c28394",
+  "token_usage": {
+    "input_tokens": 51,
+    "cache_creation_tokens": 76929,
+    "cache_read_tokens": 1740499,
+    "output_tokens": 46437,
+    "api_call_count": 32
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-04-02T20:14:20.820757Z",
+    "agent_lines": 3433,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 3433,
+    "agent_percentage": 100
+  }
+}
