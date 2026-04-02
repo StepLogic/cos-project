@@ -1,0 +1,8 @@
+Acting as a world class prompt engineer and AI agent engineer, create a comprehensive plan for creating Claude Skills, a set of workflow steps, and interaction examples of how those skills would be used, a set of example data about users that would be in an actual system for an agent like htis, and example user interaction sequences, both positive/beneficial and not helpful. 
+
+ 
+
+Create that for the follow AI agent we want to prototype: teaches a person how to use AI agents, what to avoid, gives examples, does interactive practice simulating/doing AI agent use then facilitating feedback and reflection. 
+
+
+teaches a person how to BUILD AI agents, what to avoid, gives examples, does interactive practice simulating/doing AI agent use then facilitating feedback and reflection. Teaches critical and ethical building of AI
