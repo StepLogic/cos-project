@@ -1,0 +1,123 @@
+{
+  "track": "build",
+  "title": "Building AI Agents Responsibly",
+  "description": "Learn to design, build, test, and deploy AI agents with a focus on reliability, safety, and ethical responsibility.",
+  "modules": [
+    {
+      "id": "build-m1",
+      "title": "Agent Architecture Fundamentals",
+      "level": "beginner",
+      "lessons": [
+        {
+          "id": "build-m1-l1",
+          "title": "The Agent Loop: Perceive, Reason, Act",
+          "objectives": [
+            "Understand the core agent execution loop",
+            "Identify the components: LLM, tools, context, memory"
+          ],
+          "keyConceptExplanation": "Every agent has the same core loop: (1) receive input + context, (2) the LLM decides what to do, (3) execute a tool or respond, (4) observe the result, (5) repeat. The art of building agents is designing each of these components well.",
+          "commonMistake": "Jumping straight to code without designing the loop. What tools does your agent need? What context? What are the exit conditions?",
+          "practiceExerciseId": "build-ex-001"
+        },
+        {
+          "id": "build-m1-l2",
+          "title": "Designing Agent Tools",
+          "objectives": [
+            "Write clear, well-scoped tool definitions",
+            "Understand how tool descriptions affect agent behavior"
+          ],
+          "keyConceptExplanation": "A tool definition is like a job description — the agent reads it to decide when and how to use the tool. Vague tool descriptions lead to misuse. Clear ones with examples lead to reliable behavior. Each tool should do one thing well.",
+          "commonMistake": "Creating a 'do everything' tool. If a tool has too many responsibilities, the agent won't know when to use it vs. alternatives.",
+          "practiceExerciseId": "build-ex-002"
+        }
+      ]
+    },
+    {
+      "id": "build-m2",
+      "title": "Building Your First Agent",
+      "level": "intermediate",
+      "lessons": [
+        {
+          "id": "build-m2-l1",
+          "title": "System Prompts and Agent Persona",
+          "objectives": [
+            "Write effective system prompts that guide agent behavior",
+            "Set boundaries and behavioral guardrails"
+          ],
+          "keyConceptExplanation": "The system prompt is your agent's operating manual. It defines who the agent is, what it should do, what it should refuse to do, and how it should communicate. A good system prompt is specific, gives examples, and addresses edge cases.",
+          "commonMistake": "Writing a 2-line system prompt and expecting complex behavior. Or writing a 10-page prompt that contradicts itself. Be thorough but coherent.",
+          "practiceExerciseId": "build-ex-003"
+        },
+        {
+          "id": "build-m2-l2",
+          "title": "Context Management and Memory",
+          "objectives": [
+            "Understand context windows and their limits",
+            "Design strategies for managing long conversations and persistent state"
+          ],
+          "keyConceptExplanation": "Agents have a finite context window — think of it as their working memory. Everything the agent 'knows' during a conversation must fit in this window. Strategies: summarize older context, use external memory (files, databases), and be selective about what stays in context.",
+          "commonMistake": "Stuffing everything into the context window. This degrades performance. Be selective about what the agent needs to see.",
+          "practiceExerciseId": "build-ex-004"
+        }
+      ]
+    },
+    {
+      "id": "build-m3",
+      "title": "Testing and Reliability",
+      "level": "intermediate",
+      "lessons": [
+        {
+          "id": "build-m3-l1",
+          "title": "Testing Agent Behavior",
+          "objectives": [
+            "Write tests for non-deterministic agent outputs",
+            "Use evaluation frameworks to measure agent quality"
+          ],
+          "keyConceptExplanation": "Agent testing is different from traditional software testing. You can't assert exact outputs. Instead, test for: (1) Does it use the right tools? (2) Does the output contain the right information? (3) Does it handle edge cases gracefully? (4) Does it refuse to do things it shouldn't?",
+          "commonMistake": "Not testing at all because 'AI is unpredictable.' Agents are testable — you just need different testing strategies.",
+          "practiceExerciseId": "build-ex-005"
+        },
+        {
+          "id": "build-m3-l2",
+          "title": "Handling Failures and Edge Cases",
+          "objectives": [
+            "Design graceful failure modes",
+            "Implement retry strategies and fallbacks"
+          ],
+          "keyConceptExplanation": "Agents will fail — tools error out, LLMs hallucinate, context gets lost. Good agent design plans for failure: retry with better context, fall back to simpler tools, or ask the user for clarification. Never let a failure silently produce wrong results.",
+          "commonMistake": "Catching all errors and returning a generic 'something went wrong.' Surface specific failure information so the user (or the agent itself) can recover.",
+          "practiceExerciseId": "build-ex-006"
+        }
+      ]
+    },
+    {
+      "id": "build-m4",
+      "title": "Ethics and Responsible AI Building",
+      "level": "advanced",
+      "lessons": [
+        {
+          "id": "build-m4-l1",
+          "title": "Bias, Fairness, and Representation",
+          "objectives": [
+            "Identify sources of bias in AI agents",
+            "Design mitigations for common bias patterns"
+          ],
+          "keyConceptExplanation": "Bias enters through training data, prompt design, tool selection, and evaluation criteria. An agent that searches only English sources is biased. An agent that defaults to formal language excludes some users. Audit each component of your agent for implicit assumptions.",
+          "commonMistake": "Believing your agent is 'neutral' because you didn't explicitly add bias. Bias is a default — you have to actively design against it.",
+          "practiceExerciseId": "build-ex-007"
+        },
+        {
+          "id": "build-m4-l2",
+          "title": "Safety Boundaries and Guardrails",
+          "objectives": [
+            "Implement content filtering and action limits",
+            "Design agents that fail safely"
+          ],
+          "keyConceptExplanation": "Every agent needs boundaries: what it won't do, what it will ask permission for, and what it will flag for human review. Think of guardrails like bumpers in bowling — they keep the ball in the lane without stopping the game.",
+          "commonMistake": "Building a powerful agent with no guardrails, then being surprised when it takes destructive actions. Or adding so many guardrails that the agent becomes useless.",
+          "practiceExerciseId": "build-ex-008"
+        }
+      ]
+    }
+  ]
+}

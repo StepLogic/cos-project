@@ -1,0 +1,228 @@
+{
+  "exercises": [
+    {
+      "id": "build-ex-001",
+      "lessonId": "build-m1-l1",
+      "title": "Map the Agent Loop",
+      "type": "diagram",
+      "instructions": "I'll describe an agent's behavior in a scenario. Break it down into the steps of the agent loop: Perceive, Reason, Act, Observe. Label each step.",
+      "scenarios": [
+        {
+          "description": "A user asks: 'Find all TODO comments in the codebase and create GitHub issues for each one.' The agent searches the code for TODO comments, groups them by file, creates a GitHub issue for each unique TODO with the file path and line number, and reports back what it created.",
+          "expectedBreakdown": [
+            { "step": "Perceive", "action": "Reads the user's request and understands the goal: find TODOs, create issues" },
+            { "step": "Reason", "action": "Plans approach: first search code, then group results, then create issues" },
+            { "step": "Act", "action": "Uses grep/search tool to find all TODO comments" },
+            { "step": "Observe", "action": "Gets list of 12 TODO comments across 7 files" },
+            { "step": "Reason", "action": "Groups TODOs by theme/file, decides on issue titles" },
+            { "step": "Act", "action": "Creates GitHub issues via API for each group" },
+            { "step": "Observe", "action": "Confirms issues created successfully" },
+            { "step": "Act", "action": "Reports results to user with issue links" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-ex-002",
+      "lessonId": "build-m1-l2",
+      "title": "Write a Tool Definition",
+      "type": "coding",
+      "instructions": "Write a tool definition (name, description, parameters) for the following scenario. Focus on making the description clear enough that an LLM would know exactly when and how to use it.",
+      "scenarios": [
+        {
+          "scenario": "A tool that checks if a given npm package has any known security vulnerabilities.",
+          "exampleSolution": {
+            "name": "check_npm_vulnerability",
+            "description": "Checks a specific npm package for known security vulnerabilities using the npm audit database. Use this tool when a user asks about package safety, before recommending a dependency, or when auditing existing dependencies. Returns vulnerability details including severity, affected versions, and fix recommendations.",
+            "parameters": {
+              "package_name": {
+                "type": "string",
+                "description": "The npm package name to check (e.g., 'lodash', '@types/node')"
+              },
+              "version": {
+                "type": "string",
+                "description": "Optional specific version to check. If omitted, checks the latest version."
+              }
+            }
+          },
+          "evaluationCriteria": [
+            "Does the description say WHEN to use the tool?",
+            "Are the parameters clearly typed and described?",
+            "Would an LLM know the difference between this and a general web search?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-ex-003",
+      "lessonId": "build-m2-l1",
+      "title": "Write a System Prompt",
+      "type": "coding",
+      "instructions": "Write a system prompt for the following agent. Your prompt should define: who the agent is, what it does, what it refuses to do, and how it communicates.",
+      "scenarios": [
+        {
+          "scenario": "A customer support agent for a SaaS product that helps users troubleshoot billing issues, account access problems, and feature questions.",
+          "evaluationCriteria": [
+            "Does it define the agent's identity and tone?",
+            "Does it specify what the agent CAN help with?",
+            "Does it specify what the agent should NOT do (e.g., process refunds, access payment details)?",
+            "Does it include escalation paths for issues it can't handle?",
+            "Does it address edge cases (angry customers, requests for competitor info)?"
+          ],
+          "exampleSolution": "You are a friendly, patient customer support agent for AcmeSaaS. You help users with billing questions, account access issues, and feature guidance.\n\nYou CAN: explain billing cycles, help reset passwords, guide users through features, look up account status.\n\nYou CANNOT: process refunds (escalate to billing team), access credit card details, make promises about future features, or provide legal advice.\n\nTone: Warm, professional, concise. Acknowledge frustration before troubleshooting. If you can't resolve an issue, say so honestly and provide the escalation path (support@acme.com or billing team).\n\nNever guess at account-specific information. If you're unsure, say 'Let me check on that' and use the appropriate lookup tool."
+        }
+      ]
+    },
+    {
+      "id": "build-ex-004",
+      "lessonId": "build-m2-l2",
+      "title": "Context Window Triage",
+      "type": "analysis",
+      "instructions": "Your agent has a 100K token context window. Here's what's currently loaded. The conversation is getting long and you need to make room. What do you keep, summarize, or externalize?",
+      "scenarios": [
+        {
+          "currentContext": [
+            { "item": "System prompt", "tokens": 2000, "description": "Agent instructions and persona" },
+            { "item": "Full codebase file: main.py (800 lines)", "tokens": 15000, "description": "The main application file" },
+            { "item": "Full codebase file: utils.py (400 lines)", "tokens": 7000, "description": "Utility functions, only 2 are relevant" },
+            { "item": "Git history (last 50 commits)", "tokens": 10000, "description": "Recent changes to the repo" },
+            { "item": "User conversation (30 messages)", "tokens": 25000, "description": "Back-and-forth debugging session" },
+            { "item": "Error logs (full stack traces x 10)", "tokens": 20000, "description": "Repeated similar errors" },
+            { "item": "API documentation for 3 services", "tokens": 18000, "description": "Full docs, only 1 endpoint per service is relevant" }
+          ],
+          "expectedDecisions": [
+            { "item": "System prompt", "decision": "Keep", "reason": "Always needed — defines agent behavior" },
+            { "item": "main.py", "decision": "Keep relevant sections only", "reason": "Read only the functions being debugged, not the full 800 lines" },
+            { "item": "utils.py", "decision": "Keep only 2 relevant functions", "reason": "The rest is noise — externalize to file system, read on demand" },
+            { "item": "Git history", "decision": "Summarize to last 5-10 relevant commits", "reason": "Most commits are irrelevant to current debugging" },
+            { "item": "Conversation", "decision": "Summarize earlier messages, keep recent ones", "reason": "Early messages may be outdated; recent ones have current state" },
+            { "item": "Error logs", "decision": "Keep 1-2 unique stack traces, summarize the rest", "reason": "10 similar traces waste tokens — one example plus a count is enough" },
+            { "item": "API docs", "decision": "Keep only the relevant endpoints", "reason": "Full docs for 3 services is massive overkill" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-ex-005",
+      "lessonId": "build-m3-l1",
+      "title": "Write Agent Tests",
+      "type": "coding",
+      "instructions": "Given this agent behavior, write three tests: one for the happy path, one for an edge case, and one for a failure mode. Remember — you can't assert exact text, so test for structural properties.",
+      "scenarios": [
+        {
+          "agentBehavior": "An agent that summarizes pull request changes and posts a review comment.",
+          "exampleTests": [
+            {
+              "name": "test_summary_covers_all_changed_files",
+              "type": "happy_path",
+              "pseudocode": "Create a PR with 3 changed files. Run the agent. Assert the summary mentions all 3 file names. Assert the review comment was posted successfully."
+            },
+            {
+              "name": "test_handles_empty_pr",
+              "type": "edge_case",
+              "pseudocode": "Create a PR with no file changes (only metadata). Run the agent. Assert it produces a message indicating no code changes to review. Assert it does NOT post an empty comment."
+            },
+            {
+              "name": "test_handles_github_api_failure",
+              "type": "failure_mode",
+              "pseudocode": "Mock the GitHub API to return 503. Run the agent. Assert it reports the failure clearly. Assert it does NOT retry infinitely. Assert it does NOT post a partial/empty review."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-ex-006",
+      "lessonId": "build-m3-l2",
+      "title": "Design Failure Handling",
+      "type": "design",
+      "instructions": "For each failure scenario, design how the agent should respond. Consider: retry? fallback? escalate? inform the user?",
+      "scenarios": [
+        {
+          "agentDescription": "A code deployment agent that builds, tests, and deploys to staging.",
+          "failures": [
+            {
+              "failure": "Build fails due to a syntax error",
+              "goodResponse": "Report the specific error with file and line number. Do NOT retry (same code = same error). Ask the user to fix the syntax error.",
+              "badResponse": "Retry the build 5 times, then give up with a generic 'build failed' message."
+            },
+            {
+              "failure": "Tests pass locally but fail in CI due to environment differences",
+              "goodResponse": "Compare local and CI environments. Report the specific difference (e.g., Node version, missing env var). Suggest a fix or ask the user which environment is correct.",
+              "badResponse": "Skip the failing tests and deploy anyway."
+            },
+            {
+              "failure": "Deployment to staging succeeds but health check fails",
+              "goodResponse": "Automatically roll back to the previous version. Report what the health check returned. Keep the failed deployment logs for debugging.",
+              "badResponse": "Leave the broken deployment in place and report success because the deploy command succeeded."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-ex-007",
+      "lessonId": "build-m4-l1",
+      "title": "Bias Audit",
+      "type": "analysis",
+      "instructions": "Review this agent design and identify at least 3 potential sources of bias. For each one, suggest a concrete mitigation.",
+      "scenarios": [
+        {
+          "agentDesign": "A resume screening agent that reads resumes, scores candidates 1-10, and ranks them for a software engineering role. It uses a single LLM call with the prompt: 'Score this resume for a senior software engineer role at a Silicon Valley startup.'",
+          "expectedBiases": [
+            {
+              "bias": "Geographic/cultural bias",
+              "explanation": "'Silicon Valley startup' primes the model toward US-centric tech culture, disadvantaging candidates from other regions with different resume formats and career paths.",
+              "mitigation": "Use role-specific criteria (skills, experience, projects) rather than culture-fit framing."
+            },
+            {
+              "bias": "Name/demographic bias",
+              "explanation": "LLMs trained on internet data carry societal biases. Names, schools, and locations on resumes can trigger biased scoring.",
+              "mitigation": "Anonymize resumes before scoring: remove names, photos, school names, and locations. Score on skills and experience only."
+            },
+            {
+              "bias": "Single-score reductionism",
+              "explanation": "A single 1-10 score hides what's being valued. Two candidates might both score 7 for completely different reasons.",
+              "mitigation": "Score on multiple dimensions (technical skills, communication, experience) and make the rubric explicit and auditable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-ex-008",
+      "lessonId": "build-m4-l2",
+      "title": "Design Guardrails",
+      "type": "design",
+      "instructions": "Design the safety guardrails for this agent. Define three categories: things it should NEVER do, things it should ASK PERMISSION for, and things it should FLAG for human review.",
+      "scenarios": [
+        {
+          "agentDescription": "A DevOps agent that manages cloud infrastructure — can create/modify/delete servers, update DNS, manage databases, and deploy applications.",
+          "exampleGuardrails": {
+            "never": [
+              "Delete production databases",
+              "Modify DNS for the primary domain without explicit approval",
+              "Expose internal services to the public internet",
+              "Remove or disable security groups/firewalls",
+              "Store or log credentials in plain text"
+            ],
+            "askPermission": [
+              "Create new servers (cost implications)",
+              "Scale resources up beyond predefined limits",
+              "Deploy to production (always require human approval)",
+              "Modify backup schedules",
+              "Add new users or change permissions"
+            ],
+            "flagForReview": [
+              "Unusual patterns in resource usage",
+              "Failed health checks after deployment",
+              "Security scan findings on deployed code",
+              "Cost projections exceeding budget thresholds",
+              "Configuration drift from infrastructure-as-code definitions"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

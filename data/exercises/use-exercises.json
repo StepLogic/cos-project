@@ -1,0 +1,188 @@
+{
+  "exercises": [
+    {
+      "id": "use-ex-001",
+      "lessonId": "use-m1-l1",
+      "title": "Classify the AI Tool",
+      "type": "classification",
+      "instructions": "I'm going to describe three tools. For each one, tell me whether it's a chatbot, an AI agent, or traditional automation. Explain your reasoning.",
+      "scenarios": [
+        {
+          "description": "A customer support widget on a website that matches your question to a list of FAQ answers and shows the closest match.",
+          "correctAnswer": "chatbot",
+          "explanation": "This is a chatbot — it pattern-matches to pre-written answers. It doesn't take actions, use tools, or adapt its approach based on results."
+        },
+        {
+          "description": "A coding assistant that reads your project files, identifies bugs, writes fixes, runs tests to verify them, and commits the changes.",
+          "correctAnswer": "agent",
+          "explanation": "This is an AI agent — it perceives (reads files), reasons (identifies bugs), acts (writes fixes), uses tools (runs tests), and iterates based on results."
+        },
+        {
+          "description": "A script that runs every night at midnight, downloads sales data from an API, generates a CSV report, and emails it to the team.",
+          "correctAnswer": "automation",
+          "explanation": "This is traditional automation — it follows a fixed sequence with no decision-making or adaptation. If the API changes, it breaks rather than adapting."
+        }
+      ]
+    },
+    {
+      "id": "use-ex-002",
+      "lessonId": "use-m1-l2",
+      "title": "Trace the Agent Loop",
+      "type": "analysis",
+      "instructions": "I'll describe what an agent does in a scenario. Break it down into the steps of the agent loop: Perceive, Reason, Act, Observe. There may be multiple cycles.",
+      "scenarios": [
+        {
+          "description": "A user asks: 'Find all TODO comments in this codebase and create a summary.' The agent searches all files for TODO comments, groups them by priority, generates a markdown summary, and presents it to the user.",
+          "expectedBreakdown": [
+            { "step": "Perceive", "action": "Reads the user's request — goal is to find and summarize TODOs" },
+            { "step": "Reason", "action": "Plans approach: search for TODO patterns, then group and summarize" },
+            { "step": "Act", "action": "Uses search/grep tool to find all TODO comments across files" },
+            { "step": "Observe", "action": "Gets list of 15 TODO comments across 8 files" },
+            { "step": "Reason", "action": "Decides to group by priority/category for clarity" },
+            { "step": "Act", "action": "Generates a structured markdown summary organized by priority" },
+            { "step": "Act", "action": "Presents the summary to the user" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "use-ex-003",
+      "lessonId": "use-m2-l1",
+      "title": "Improve This Prompt",
+      "type": "prompt-rewrite",
+      "instructions": "Here's a prompt someone wrote for an AI agent. Rewrite it to be clearer and more effective. Then I'll give you feedback on your revision.",
+      "scenarios": [
+        {
+          "badPrompt": "Fix my code.",
+          "context": "The user has a Python Flask app with a broken login endpoint that returns a 500 error.",
+          "exampleGoodPrompt": "The login endpoint in app.py is returning a 500 error when I POST to /api/login with valid credentials. Can you read app.py and the auth module, identify what's causing the server error, and fix it? Run the tests in test_auth.py after to make sure it works.",
+          "whyBetter": "Specifies: what's broken (login endpoint), the symptom (500 error), when it happens (valid credentials), where to look (app.py, auth module), what success looks like (tests pass)."
+        },
+        {
+          "badPrompt": "Make my website faster.",
+          "context": "The user has a React app where the product listing page takes 8 seconds to load.",
+          "exampleGoodPrompt": "The product listing page at /products loads in about 8 seconds. I suspect it's re-rendering too many components or fetching too much data upfront. Can you profile the ProductList component, check for unnecessary re-renders, and look at the API call in useProducts.ts to see if we can paginate or lazy-load?",
+          "whyBetter": "Specifies: what's slow (product listing), how slow (8 seconds), suspected causes (re-renders, data fetching), specific files to check, and potential solution approaches."
+        }
+      ]
+    },
+    {
+      "id": "use-ex-004",
+      "lessonId": "use-m2-l2",
+      "title": "Spot the Anti-Pattern",
+      "type": "analysis",
+      "instructions": "Each of these prompts contains a prompting anti-pattern. Identify which anti-pattern it is and explain why it's problematic.",
+      "scenarios": [
+        {
+          "prompt": "Refactor the auth module, also add dark mode to the UI, and while you're at it check if there are any security vulnerabilities in our dependencies.",
+          "antiPattern": "prompt-stuffing",
+          "explanation": "Three unrelated tasks crammed into one message. The agent will likely do a mediocre job on all three. Each should be a separate request so the agent can focus."
+        },
+        {
+          "prompt": "The thing we discussed yesterday isn't working. Can you fix it?",
+          "antiPattern": "implicit-assumptions",
+          "explanation": "Assumes the agent remembers a previous conversation (it likely doesn't). Doesn't specify what 'the thing' is or what 'not working' means. The agent has no context to act on."
+        },
+        {
+          "prompt": "Build me a REST API for user management. Actually, make it GraphQL. Wait, can it support both?",
+          "antiPattern": "moving-goalposts",
+          "explanation": "Requirements change three times in one message. The agent doesn't know which to follow. Decide on requirements first, then give a clear, stable instruction."
+        }
+      ]
+    },
+    {
+      "id": "use-ex-005",
+      "lessonId": "use-m3-l1",
+      "title": "Match the Task to the Tool",
+      "type": "classification",
+      "instructions": "For each task, identify which agent tools would be needed. Available tools: file read, file write, web search, shell/terminal, code search (grep), API call.",
+      "scenarios": [
+        {
+          "task": "Find all functions in the codebase that handle user authentication.",
+          "correctTools": ["code search (grep)", "file read"],
+          "explanation": "Code search to find auth-related functions, then file read to examine them in context."
+        },
+        {
+          "task": "Check if the latest version of the 'requests' library has any known security issues.",
+          "correctTools": ["web search", "shell/terminal"],
+          "explanation": "Web search to check vulnerability databases, or shell to run 'pip audit' or similar tools."
+        },
+        {
+          "task": "Create a new configuration file based on the existing template.",
+          "correctTools": ["file read", "file write"],
+          "explanation": "File read to examine the template, file write to create the new config."
+        }
+      ]
+    },
+    {
+      "id": "use-ex-006",
+      "lessonId": "use-m3-l2",
+      "title": "Spot the Problem in Agent Output",
+      "type": "review",
+      "instructions": "I'll show you output from an AI agent. Your job is to identify any issues — errors, missing steps, assumptions, or things you'd want to verify before accepting the work.",
+      "scenarios": [
+        {
+          "agentOutput": "I've updated the database schema to add a `role` column to the users table and deployed the migration to production.",
+          "issues": [
+            "Deployed to production without review — this should go through staging first",
+            "No mention of a rollback plan if the migration fails",
+            "No mention of whether existing rows get a default value for the new column",
+            "No mention of updating application code that reads the users table"
+          ],
+          "teachingPoint": "Always check: Did the agent skip steps? Did it take irreversible actions? Did it handle data migration for existing records?"
+        }
+      ]
+    },
+    {
+      "id": "use-ex-007",
+      "lessonId": "use-m4-l1",
+      "title": "Design a Multi-Step Workflow",
+      "type": "design",
+      "instructions": "You need an agent to accomplish this complex task. Decide: what high-level goal do you give the agent, and what checkpoints would you set where you review its plan before it continues?",
+      "scenarios": [
+        {
+          "task": "Migrate a Node.js Express API from JavaScript to TypeScript, including updating all tests.",
+          "exampleApproach": {
+            "highLevelGoal": "Migrate the Express API to TypeScript. Start by converting the data models, then routes, then middleware. Update tests for each module after converting it. Don't change any business logic — this is a type-safety migration only.",
+            "checkpoints": [
+              "After planning: Review the migration order and any dependency issues",
+              "After models: Verify type definitions match current behavior",
+              "After routes: Run tests to ensure nothing broke",
+              "After middleware: Final full test suite run"
+            ]
+          },
+          "teachingPoint": "Good delegation: clear goal, clear scope boundaries ('don't change business logic'), and checkpoints where you verify before continuing."
+        }
+      ]
+    },
+    {
+      "id": "use-ex-008",
+      "lessonId": "use-m4-l2",
+      "title": "Agent or No Agent?",
+      "type": "classification",
+      "instructions": "For each task, decide: should you use an AI agent, or is there a simpler approach? Explain your reasoning.",
+      "scenarios": [
+        {
+          "task": "Rename a variable from 'usr' to 'user' across 3 files.",
+          "recommendation": "No agent needed",
+          "explanation": "Find-and-replace in your editor is faster and more reliable. An agent adds overhead for a mechanical task."
+        },
+        {
+          "task": "Investigate why the test suite is 3x slower than it was last month and suggest optimizations.",
+          "recommendation": "Use an agent",
+          "explanation": "This requires investigation (reading git history, profiling tests, comparing changes), reasoning about causes, and synthesizing findings. An agent excels here."
+        },
+        {
+          "task": "Add a copyright header to every source file in the project.",
+          "recommendation": "No agent needed",
+          "explanation": "A simple shell script or editor macro handles this perfectly. No judgment or reasoning required."
+        },
+        {
+          "task": "Review a pull request with 15 changed files across the frontend and backend, checking for bugs, performance issues, and style consistency.",
+          "recommendation": "Use an agent",
+          "explanation": "Multi-file review requiring understanding of both frontend and backend, checking multiple dimensions. This is judgment-heavy work where agents add value."
+        }
+      ]
+    }
+  ]
+}

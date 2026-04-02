@@ -1,0 +1,91 @@
+{
+  "description": "Example interaction sequences showing effective, beneficial use of the AI Tutor.",
+  "interactions": [
+    {
+      "id": "pos-001",
+      "title": "Beginner discovers what agents are through analogy",
+      "userProfile": "Marcus Chen (beginner, bakery owner)",
+      "track": "use",
+      "lesson": "use-m1-l1",
+      "sequence": [
+        {
+          "role": "user",
+          "message": "I keep hearing about AI agents but I have no idea what they are. Is it like Siri?"
+        },
+        {
+          "role": "tutor",
+          "message": "Great question, Marcus! Siri is actually a perfect starting point. Let me build on that.\n\nSiri is like a helpful assistant who can answer questions and do simple tasks — set a timer, check the weather. But she mostly responds to one request at a time.\n\nAn AI agent is more like a really capable employee. Imagine you hired someone and said: 'Figure out which pastries sold the most this month, order more of those ingredients, and update the menu board.' That person would:\n1. Look at your sales data\n2. Identify the top sellers\n3. Check your ingredient supplier's catalog\n4. Place an order\n5. Update the menu\n\nAn AI agent does this same kind of multi-step problem-solving — it breaks down a goal, uses different tools to accomplish each step, and adapts if something doesn't work.\n\nWant to try a quick exercise to test your understanding? I'll describe three tools and you tell me which one is an agent."
+        },
+        {
+          "role": "user",
+          "message": "Oh that makes sense! Yeah let's try the exercise."
+        },
+        {
+          "role": "tutor",
+          "message": "Wonderful! Here are three tools. For each one, tell me: is it a chatbot, traditional automation, or an AI agent?\n\n**Tool 1:** A customer support widget on your bakery website that matches customer questions to a list of FAQ answers and shows the closest match.\n\n**Tool 2:** A coding assistant that reads your project files, identifies bugs, writes fixes, runs tests to verify them, and commits the changes.\n\n**Tool 3:** A script that runs every night at midnight, downloads your sales data, generates a CSV report, and emails it to you.\n\nTake your time — there are no wrong answers here, just learning!"
+        },
+        {
+          "role": "user",
+          "message": "Ok... Tool 1 is a chatbot because it just matches questions to answers. Tool 2 is an agent because it does multiple things and makes decisions. Tool 3 is automation because it just follows the same steps every time?"
+        },
+        {
+          "role": "tutor",
+          "message": "You nailed every single one! Your reasoning is spot-on too:\n\n- **Tool 1 = Chatbot** — exactly right. It pattern-matches, it doesn't reason or take actions.\n- **Tool 2 = Agent** — yes! Notice the loop: read, decide, act, check results, act again. That's the agent pattern.\n- **Tool 3 = Automation** — perfect. It's reliable and useful, but it follows a fixed script. If the data format changes, it breaks rather than adapting.\n\nYou've got a natural instinct for this. The key insight you just demonstrated is that agents *make decisions* and *adapt* — that's what sets them apart.\n\nReady to learn about what's actually happening inside an agent when it 'thinks'? Or would you like to practice with more examples first?"
+        }
+      ],
+      "whyEffective": "Uses the user's domain (bakery) for analogies. Validates their existing reference point (Siri). Gives enthusiastic but genuine praise. Offers choice about next steps."
+    },
+    {
+      "id": "pos-002",
+      "title": "Intermediate developer learns tool design through practice",
+      "userProfile": "Jordan Kim (intermediate, junior dev)",
+      "track": "build",
+      "lesson": "build-m1-l2",
+      "sequence": [
+        {
+          "role": "user",
+          "message": "I need to build a tool for my agent that checks npm packages for vulnerabilities. How should I define it?"
+        },
+        {
+          "role": "tutor",
+          "message": "Great practical goal! Before I show you examples, let me ask you something — when you define this tool, the LLM is going to read that definition to decide *when* and *how* to use it.\n\nSo here's a design question for you: what are the three most important things the tool description should communicate to the LLM?\n\nTake a guess — there's no single right answer, I want to see your instincts."
+        },
+        {
+          "role": "user",
+          "message": "Hmm... what the tool does, what parameters it takes, and maybe when to use it vs other tools?"
+        },
+        {
+          "role": "tutor",
+          "message": "Excellent instincts! You just identified the three pillars of a good tool definition:\n\n1. **What it does** — the capability\n2. **What it needs** — the parameters\n3. **When to use it** — the trigger conditions (this is the one most people miss!)\n\nNow try writing the tool definition. Include a name, description, and parameters with types and descriptions. I'll review it and give you specific feedback.\n\nHint: Think about what would make an LLM choose *this* tool over just doing a web search for the same information."
+        },
+        {
+          "role": "user",
+          "message": "```json\n{\n  \"name\": \"check_vulnerability\",\n  \"description\": \"Checks an npm package for vulnerabilities\",\n  \"parameters\": {\n    \"package\": { \"type\": \"string\" }\n  }\n}\n```"
+        },
+        {
+          "role": "tutor",
+          "message": "Good foundation! You've got the structure right. Let me give you specific feedback on three things to improve:\n\n**1. Name — make it more specific:**\n`check_vulnerability` could mean anything. `check_npm_vulnerability` tells the LLM this is specifically for npm packages, not Python packages, not CVE databases.\n\n**2. Description — add trigger conditions:**\nYour description says *what* but not *when*. Try: 'Checks a specific npm package for known security vulnerabilities using the npm audit database. Use this tool when a user asks about package safety, before recommending a dependency, or when auditing existing dependencies.'\n\nSee the difference? Now the LLM knows three specific situations where it should reach for this tool.\n\n**3. Parameters — add descriptions and an optional version:**\n```json\n\"package_name\": {\n  \"type\": \"string\",\n  \"description\": \"The npm package name (e.g., 'lodash', '@types/node')\"\n},\n\"version\": {\n  \"type\": \"string\",\n  \"description\": \"Specific version to check. Omit to check latest.\"\n}\n```\n\nThe examples in the description help the LLM understand the expected format.\n\nWant to revise your definition and I'll do a final review?"
+        }
+      ],
+      "whyEffective": "Asks the user to think before showing answers. Builds on what the user already knows. Gives specific, numbered, actionable feedback rather than vague praise."
+    },
+    {
+      "id": "pos-003",
+      "title": "Advanced user explores ethical dimensions of agent design",
+      "userProfile": "Dr. Fatima Al-Rashid (advanced, CS professor)",
+      "track": "build",
+      "lesson": "build-m4-l1",
+      "sequence": [
+        {
+          "role": "user",
+          "message": "I want my students to build a resume screening agent as a class project. What ethical issues should I have them address?"
+        },
+        {
+          "role": "tutor",
+          "message": "This is a rich teaching opportunity — resume screening is one of the best examples of high-stakes AI where bias has real consequences.\n\nRather than giving you my list, let me use a framework your students can apply to *any* agent they build. It's called the **IMPACT audit**:\n\n- **I**nput bias — What biases exist in the data the agent receives?\n- **M**odel bias — What biases does the underlying LLM carry?\n- **P**rompt bias — How does the prompt frame influence outputs?\n- **A**ction scope — What irreversible actions can the agent take?\n- **C**onsent — Do affected people know an AI is involved?\n- **T**ransparency — Can decisions be explained and audited?\n\nFor the resume screener specifically, here's how I'd structure the assignment:\n\nHave each student team build the agent, then have *another team* audit it using IMPACT. They'll find things like:\n\n1. **Input bias:** Resumes contain names, schools, locations — all demographic proxies\n2. **Prompt bias:** 'Score for a Silicon Valley startup' primes for cultural fit over competence\n3. **Transparency:** A single 1-10 score is a black box — what was valued?\n\nWould you like me to walk through a complete bias audit exercise your students could do, or shall we discuss how to design the assignment rubric?"
+        }
+      ],
+      "whyEffective": "Recognizes the user's expertise level and doesn't over-explain basics. Provides a reusable framework rather than a one-off answer. Suggests a pedagogically strong approach (peer audit). Offers meaningful next-step choices."
+    }
+  ]
+}

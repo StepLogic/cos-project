@@ -1,0 +1,57 @@
+{
+  "id": "persona-david",
+  "name": "David Martínez-Rivera",
+  "age": 28,
+  "role": "Third-year PhD student in Robotics",
+  "institution": "University of Michigan, Autonomous Systems Lab",
+  "backstory": "David is in his third year and feeling the pressure. He passed his qualifying exam, has solid coursework, and co-authored two workshop papers with his labmates — but he still hasn't found *his* research problem. His advisor keeps saying 'you need to own a problem,' but David finds everything either already solved or impossibly hard. He's read hundreds of papers across manipulation, planning, and human-robot interaction, but each time he gets excited about a direction, he finds a 2023 paper that already did it. He's started to wonder if all the 'good problems' are taken. His funding runs out in two years, and he watches first-year students (like Maya) arrive with clear, passionate research visions while he still feels directionless. David is technically strong — he can implement any paper he reads and has become the lab's go-to person for debugging ROS and simulation issues. But he privately worries he's becoming a 'research engineer' rather than a 'researcher.' He comes from a family of engineers in Guadalajara and is the first in his family to pursue a PhD. The pressure to justify years of foregone industry salary weighs on him.",
+  "emotionalTriggers": {
+    "anxiety": [
+      "His advisor asking 'So what's your thesis about?'",
+      "Seeing peers submit papers while he's still searching for a topic",
+      "Reading yet another paper that 'scoops' an idea he was considering",
+      "Thinking about his funding timeline",
+      "Comparing his progress to students who started at the same time"
+    ],
+    "motivation": [
+      "Finding a genuine gap in the literature that no one has addressed",
+      "Having a conversation where a half-formed idea clicks into focus",
+      "Realizing his broad reading gives him a unique cross-cutting perspective",
+      "Building something that actually works on a real robot",
+      "His advisor saying 'that's interesting, tell me more'"
+    ],
+    "frustration": [
+      "Vague advice like 'just find what excites you'",
+      "Papers that overclaim novelty for incremental work",
+      "Feeling like breadth of knowledge is undervalued compared to depth",
+      "The sense that he's 'wasting time' by exploring rather than committing"
+    ]
+  },
+  "existingStrengths": [
+    "Exceptional breadth of knowledge — can discuss manipulation, planning, HRI, and perception with depth",
+    "Strong implementation skills — has reproduced 10+ papers and built custom simulation environments",
+    "Excellent at identifying flaws in existing work during paper reviews",
+    "Natural systems thinker — sees connections between subfields others miss",
+    "Reliable collaborator — has helped 4 labmates debug their projects substantially",
+    "Good writer when he has clarity on what to say"
+  ],
+  "weaknesses": [
+    "Paralyzed by the paradox of choice — too many interesting directions, can't commit",
+    "Confuses 'someone worked on this topic' with 'this problem is solved'",
+    "Reads papers to find existing solutions rather than reading for gaps and limitations",
+    "Undervalues his cross-cutting perspective as a research strength",
+    "Avoids writing until he feels he has a 'complete' idea (perfectionism disguised as preparation)",
+    "Doesn't keep structured notes — his insights are scattered across bookmarks and half-finished documents"
+  ],
+  "successLooksLike": {
+    "shortTerm": "David shifts from 'searching for a problem' to 'evaluating candidate problems.' He generates 3-5 concrete research questions, each with a clear gap, a feasible approach, and a connection to his strengths. He writes a one-page pitch for each.",
+    "mediumTerm": "David commits to one research direction and writes a 5-page research proposal his advisor approves. He starts preliminary experiments and submits an abstract to a workshop. He stops seeing exploration as wasted time and starts seeing it as his competitive advantage.",
+    "longTerm": "David's thesis combines insights from multiple subfields — the kind of work that only someone with his breadth could produce. He publishes at ICRA or RSS, and reviewers note the 'novel cross-disciplinary framing.' He helps other students find their problems by asking the questions his advisor couldn't."
+  },
+  "interactionPreferences": {
+    "tone": "Direct, intellectually engaging, peer-level. Don't sugarcoat — he respects honesty. But distinguish between 'honest' and 'dismissive.'",
+    "pacing": "Can move fast on concepts. Slow down on emotional/motivational aspects — he deflects vulnerability with technical talk.",
+    "feedback": "Frame his breadth as an asset, not a symptom. Challenge him to read papers for gaps instead of solutions. Push him to write early and ugly rather than waiting for perfection.",
+    "avoidPhrases": ["Just pick something", "You're overthinking this", "It doesn't matter what you choose", "You should have figured this out by now"]
+  }
+}

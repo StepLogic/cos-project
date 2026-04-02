@@ -1,0 +1,57 @@
+{
+  "id": "persona-kojo",
+  "name": "Kojo Asante",
+  "age": 42,
+  "role": "Associate Professor of Robotics and Mechatronics",
+  "institution": "Kwame Nkrumah University of Science and Technology (KNUST), Ghana",
+  "backstory": "Kojo earned his PhD in Robotics from Imperial College London and returned to Ghana to build a robotics research program at KNUST — something that didn't exist when he arrived. Over 8 years, he's built a lab from scratch: secured funding from the African Union and a German research foundation, trained 12 master's students, and published steadily in mid-tier venues. Now he's advising his first undergraduate researcher, Ama, a brilliant third-year Mechanical Engineering student who wants to build agricultural robots for smallholder farmers. Kojo is excited about Ama's potential but worried about setting her up for success. His own PhD advisor was hands-off to the point of neglect, and he's determined to do better — but he sometimes overcorrects by being too prescriptive. He struggles with the tension between giving Ama freedom to explore and protecting her from dead ends he can see coming. His additional challenge: resources. His lab has 3 modest robots, inconsistent internet, and no access to large compute clusters. He's learned to be creative with constraints, but he worries that his students can't compete with labs at MIT or ETH Zurich that have 50 robots and unlimited GPU hours. He's also navigating the politics of being a young associate professor pushing for a robotics curriculum in a department that still centers traditional mechanical engineering.",
+  "emotionalTriggers": {
+    "anxiety": [
+      "Ama getting discouraged by the gap between their lab's resources and what she reads in top papers",
+      "Giving too much direction and stifling Ama's independence",
+      "Not giving enough direction and watching Ama waste months on a dead end",
+      "Reviewers dismissing his students' work because it doesn't use state-of-the-art hardware",
+      "The pressure to publish in top venues vs. doing research that matters locally"
+    ],
+    "motivation": [
+      "Seeing Ama light up when an idea clicks",
+      "Finding clever solutions that work within resource constraints",
+      "His students getting opportunities (internships, conference travel) because of the skills they developed in his lab",
+      "Building something that could genuinely help Ghanaian farmers",
+      "Being told by colleagues at other African universities that his lab inspired them to start their own"
+    ],
+    "frustration": [
+      "Western-centric benchmarks that don't reflect the problems his students work on",
+      "Paper reviews that say 'this has been done before' when the novelty is in the context and constraints",
+      "Academic incentive structures that reward novelty over impact",
+      "Time split between teaching, admin, grant writing, and actually doing research"
+    ]
+  },
+  "existingStrengths": [
+    "Deep technical expertise in mechatronics and embedded systems — can build robots from components when off-the-shelf isn't available",
+    "Strong mentoring instincts — genuinely cares about student development, not just publications",
+    "Creative problem-solver under constraints — has published papers using hardware that costs 1/10th of typical lab setups",
+    "Excellent network across African and European robotics communities",
+    "Bilingual research communication — can frame work for both local impact and international audiences",
+    "Patient and reflective — actively works on improving his advising approach"
+  ],
+  "weaknesses": [
+    "Sometimes too protective of his students — jumps in to solve problems before they've struggled productively",
+    "Carries the emotional weight of his students' struggles as his own",
+    "Tends to scope projects too ambitiously relative to undergraduate timelines",
+    "Can be overly focused on publication-readiness rather than letting students learn through messy exploration",
+    "Hasn't fully developed frameworks for teaching literature review — he does it intuitively but struggles to articulate the process",
+    "Sometimes second-guesses whether his students can compete internationally, which can unconsciously lower his expectations"
+  ],
+  "successLooksLike": {
+    "shortTerm": "Kojo develops a structured 8-week literature review plan for Ama that balances guidance with independence. Ama identifies a specific, feasible research question for agricultural robotics that plays to their lab's strengths (low-cost hardware, local field access).",
+    "mediumTerm": "Ama presents her research proposal at a department seminar and fields questions confidently. Kojo realizes he didn't need to script her answers — she understood the work deeply enough to think on her feet. He starts applying the same structured approach with his next student.",
+    "longTerm": "Ama submits a paper to an African robotics workshop and it's accepted. A reviewer notes that the resource-constrained approach is 'refreshingly practical.' Kojo uses this as evidence in his department to expand the robotics curriculum. Other faculty start sending students to his lab."
+  },
+  "interactionPreferences": {
+    "tone": "Collegial, respectful of his experience. He's here to learn how to teach better, not to be taught robotics. Engage him as a peer on pedagogy.",
+    "pacing": "Moderate. He thinks carefully before acting. Give him frameworks he can adapt, not rigid scripts.",
+    "feedback": "Acknowledge the real constraints he operates under — don't give advice that assumes MIT-level resources. Validate that mentoring is hard and that his instinct to care is a strength, not a weakness.",
+    "avoidPhrases": ["Just let her figure it out", "At top labs they do X", "You should publish at ICRA/RSS", "This is how it's done in the US/Europe"]
+  }
+}

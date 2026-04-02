@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UserProgress",
+  "description": "Tracks a user's progress through the AI Tutor curriculum",
+  "type": "object",
+  "properties": {
+    "userId": { "type": "string" },
+    "track": { "enum": ["use", "build", "both"] },
+    "level": { "enum": ["beginner", "intermediate", "advanced"] },
+    "completedLessons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "currentLesson": { "type": "string" },
+    "practiceSessionsCompleted": { "type": "integer", "minimum": 0 },
+    "reflectionsCompleted": { "type": "integer", "minimum": 0 },
+    "strengths": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "areasForGrowth": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "lastSessionDate": { "type": "string", "format": "date" }
+  },
+  "required": ["userId", "track", "level"]
+}

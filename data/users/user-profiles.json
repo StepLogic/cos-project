@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "id": "user-001",
+      "name": "Amara Osei",
+      "role": "High school teacher",
+      "techLevel": "beginner",
+      "aiExperience": "Has used ChatGPT for lesson planning a few times",
+      "goal": "Learn how to use AI agents effectively in her classroom workflow",
+      "track": "use",
+      "learningStyle": "Prefers concrete examples before theory",
+      "concerns": ["Privacy of student data", "Over-reliance on AI"]
+    },
+    {
+      "id": "user-002",
+      "name": "Jordan Kim",
+      "role": "Junior software developer",
+      "techLevel": "intermediate",
+      "aiExperience": "Uses GitHub Copilot daily, has tried Claude Code",
+      "goal": "Learn to build custom AI agents for internal tooling at work",
+      "track": "build",
+      "learningStyle": "Hands-on, learns by doing",
+      "concerns": ["Security implications", "How to test agents properly"]
+    },
+    {
+      "id": "user-003",
+      "name": "Dr. Fatima Al-Rashid",
+      "role": "University professor of computer science",
+      "techLevel": "advanced",
+      "aiExperience": "Published papers on NLP, familiar with transformer architectures",
+      "goal": "Understand best practices for building production AI agents with ethical guardrails",
+      "track": "build",
+      "learningStyle": "Theoretical foundation first, then implementation",
+      "concerns": ["Bias in agent outputs", "Reproducibility", "Academic integrity"]
+    },
+    {
+      "id": "user-004",
+      "name": "Marcus Chen",
+      "role": "Small business owner (bakery)",
+      "techLevel": "beginner",
+      "aiExperience": "None - heard about AI from friends",
+      "goal": "Understand what AI agents are and whether they could help with inventory and customer service",
+      "track": "use",
+      "learningStyle": "Needs analogies to familiar concepts, step-by-step guidance",
+      "concerns": ["Cost", "Complexity", "Will it replace his employees"]
+    },
+    {
+      "id": "user-005",
+      "name": "Priya Sharma",
+      "role": "Product manager at a tech startup",
+      "techLevel": "intermediate",
+      "aiExperience": "Manages a team building AI features, doesn't code herself",
+      "goal": "Understand AI agent capabilities deeply enough to make informed product decisions and communicate with her engineering team",
+      "track": "use",
+      "learningStyle": "Business-case driven, wants to understand tradeoffs",
+      "concerns": ["Hallucinations in customer-facing features", "Compliance requirements"]
+    }
+  ]
+}

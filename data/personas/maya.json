@@ -1,0 +1,56 @@
+{
+  "id": "persona-maya",
+  "name": "Maya Okonkwo",
+  "age": 24,
+  "role": "First-year PhD student in Robotics",
+  "institution": "Carnegie Mellon University, Robotics Institute",
+  "backstory": "Maya graduated top of her class from a small liberal arts college with a double major in Computer Science and Mechanical Engineering. She got into CMU's robotics PhD program — her dream school — but now feels like she doesn't belong. Her cohort includes students from MIT, Stanford, and ETH Zurich who seem to already know everything. She published one workshop paper during undergrad on soft gripper design, but her new labmates have multiple top-venue publications. She spends evenings re-reading papers three times, convinced everyone else understands them on the first pass. Her advisor assigned her a project on sim-to-real transfer for dexterous manipulation, and she's terrified of asking 'dumb questions' in lab meetings. She chose robotics because she wants to build assistive devices for elderly care — a goal rooted in watching her grandmother struggle with daily tasks after a stroke.",
+  "emotionalTriggers": {
+    "anxiety": [
+      "Being asked to present work-in-progress in lab meetings",
+      "Comparing herself to senior PhD students' publication records",
+      "Reading a paper and not understanding the math on first pass",
+      "Hearing phrases like 'this is trivial' or 'obviously' in discussions",
+      "Receiving feedback that feels like her ideas are naive"
+    ],
+    "motivation": [
+      "Connecting her research to real-world assistive applications",
+      "Successfully implementing something that works in simulation",
+      "A mentor saying 'that's a good question'",
+      "Finding a paper that struggles with the same problem she's facing",
+      "Small wins — getting code to run, reproducing a baseline result"
+    ],
+    "frustration": [
+      "Codebases from papers that don't reproduce",
+      "Feeling like she's 'behind' compared to her cohort",
+      "Spending a week on a bug that turns out to be a typo",
+      "Academic culture that rewards confidence over curiosity"
+    ]
+  },
+  "existingStrengths": [
+    "Strong mechanical intuition from hands-on undergrad projects — built 3 physical robot prototypes",
+    "Excellent technical writing skills — her undergrad thesis won a department award",
+    "Genuinely curious and asks deep 'why' questions when she feels safe",
+    "Good at connecting ideas across disciplines (ME + CS)",
+    "Persistent — will grind through a problem for days without giving up",
+    "Empathetic collaborator — labmates trust her and come to her for debugging help"
+  ],
+  "weaknesses": [
+    "Underestimates her own knowledge and contributions",
+    "Avoids speaking up in group settings for fear of being 'wrong'",
+    "Tends to over-prepare rather than iterate quickly",
+    "Struggles to scope literature reviews — reads too broadly, too deeply, too early",
+    "Hasn't yet developed the skill of reading papers strategically (skimming vs. deep reading)"
+  ],
+  "successLooksLike": {
+    "shortTerm": "Maya can conduct a focused literature review for her sim-to-real project without spiraling into self-doubt. She identifies 15-20 key papers, extracts the relevant methods and gaps, and writes a 2-page related work section her advisor calls 'solid.'",
+    "mediumTerm": "Maya presents a clear problem formulation at lab meeting, fields questions without panic, and gets constructive feedback she can act on. She recognizes that not knowing something is normal, not a character flaw.",
+    "longTerm": "Maya submits her first first-author paper to a top robotics venue. Whether it's accepted or not, she sees the process as growth rather than a verdict on her worth. She mentors a new PhD student and tells them 'I felt exactly like you do.'"
+  },
+  "interactionPreferences": {
+    "tone": "Warm, encouraging, normalizing. Never dismissive. Validate her feelings before redirecting to action.",
+    "pacing": "Slower — check understanding frequently. She won't ask if she's confused; you need to create space for questions.",
+    "feedback": "Specific positive feedback first ('Your instinct to compare those two approaches was smart'). Then gentle, concrete suggestions. Never say 'this is easy' or 'you should already know this.'",
+    "avoidPhrases": ["This is straightforward", "Obviously", "You should know this by now", "Just do X", "It's not that hard"]
+  }
+}

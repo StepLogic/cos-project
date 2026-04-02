@@ -1,0 +1,123 @@
+{
+  "track": "use",
+  "title": "Using AI Agents Effectively",
+  "description": "Learn to work with AI agents as powerful tools — understanding their capabilities, limitations, and how to get the best results.",
+  "modules": [
+    {
+      "id": "use-m1",
+      "title": "What Are AI Agents?",
+      "level": "beginner",
+      "lessons": [
+        {
+          "id": "use-m1-l1",
+          "title": "AI Agents vs. Chatbots vs. Automation",
+          "objectives": [
+            "Distinguish between a chatbot, an AI agent, and traditional automation",
+            "Identify real-world examples of each"
+          ],
+          "keyConceptExplanation": "Think of it like cooking. A chatbot is like a recipe card — it gives you fixed answers. Automation is like a rice cooker — it does one thing reliably. An AI agent is like having a sous-chef — it understands your goal, makes decisions, uses tools, and adapts when things change.",
+          "commonMistake": "Assuming all AI tools are agents. Most chatbots are not agents — they don't take actions or use tools.",
+          "practiceExerciseId": "use-ex-001"
+        },
+        {
+          "id": "use-m1-l2",
+          "title": "How AI Agents Work Under the Hood",
+          "objectives": [
+            "Understand the basic loop: perceive, reason, act",
+            "Know what 'tools' and 'context' mean in agent terms"
+          ],
+          "keyConceptExplanation": "An AI agent works in a cycle: (1) it reads your request and any context, (2) it thinks about what to do, (3) it takes an action (like reading a file or searching the web), (4) it observes the result, and (5) it decides what to do next. This loop repeats until the task is done.",
+          "commonMistake": "Thinking the agent 'remembers' everything. Agents have limited context windows — they work with what's in front of them.",
+          "practiceExerciseId": "use-ex-002"
+        }
+      ]
+    },
+    {
+      "id": "use-m2",
+      "title": "Prompting AI Agents",
+      "level": "beginner",
+      "lessons": [
+        {
+          "id": "use-m2-l1",
+          "title": "Writing Clear Instructions",
+          "objectives": [
+            "Write prompts that give agents enough context to act",
+            "Understand why vague prompts produce vague results"
+          ],
+          "keyConceptExplanation": "Imagine asking a new employee to 'fix the thing.' They'd be lost. But if you say 'The login button on the settings page returns a 404 error — can you check the route handler in auth.py?', they know exactly where to look. AI agents work the same way.",
+          "commonMistake": "Being too vague ('make it better') or too prescriptive ('do exactly these 47 steps'). The sweet spot is clear intent with enough context.",
+          "practiceExerciseId": "use-ex-003"
+        },
+        {
+          "id": "use-m2-l2",
+          "title": "What to Avoid When Prompting",
+          "objectives": [
+            "Recognize prompt anti-patterns",
+            "Understand why certain approaches fail"
+          ],
+          "keyConceptExplanation": "Common anti-patterns: (1) Prompt stuffing — cramming unrelated requests into one message. (2) Implicit assumptions — expecting the agent to know your codebase without showing it. (3) Moving goalposts — changing requirements mid-task without acknowledging the shift.",
+          "commonMistake": "Blaming the agent for bad output when the prompt was unclear. Always check your prompt first.",
+          "practiceExerciseId": "use-ex-004"
+        }
+      ]
+    },
+    {
+      "id": "use-m3",
+      "title": "Working With Agent Tools",
+      "level": "intermediate",
+      "lessons": [
+        {
+          "id": "use-m3-l1",
+          "title": "Understanding What Tools an Agent Has",
+          "objectives": [
+            "Identify common agent tools (file read/write, search, web, shell)",
+            "Know how to ask an agent what it can do"
+          ],
+          "keyConceptExplanation": "An agent's tools are like a carpenter's toolbox. A carpenter with only a hammer will try to hammer everything. Knowing what tools your agent has helps you give it tasks it can actually accomplish.",
+          "commonMistake": "Asking an agent to do something its tools don't support, then getting frustrated when it fails or hallucinates.",
+          "practiceExerciseId": "use-ex-005"
+        },
+        {
+          "id": "use-m3-l2",
+          "title": "Reviewing and Verifying Agent Work",
+          "objectives": [
+            "Develop habits for checking agent output",
+            "Know when to trust and when to verify"
+          ],
+          "keyConceptExplanation": "Trust, but verify. An agent might write code that looks correct but has a subtle bug, or give you information that's outdated. Always: (1) read the changes before accepting, (2) run tests, (3) check edge cases the agent might have missed.",
+          "commonMistake": "Blindly accepting all agent output without review. The agent is a collaborator, not an oracle.",
+          "practiceExerciseId": "use-ex-006"
+        }
+      ]
+    },
+    {
+      "id": "use-m4",
+      "title": "Advanced Agent Collaboration",
+      "level": "advanced",
+      "lessons": [
+        {
+          "id": "use-m4-l1",
+          "title": "Multi-Step Workflows and Agent Planning",
+          "objectives": [
+            "Guide an agent through complex, multi-step tasks",
+            "Know when to break tasks down vs. let the agent plan"
+          ],
+          "keyConceptExplanation": "For complex tasks, you have a choice: give the agent the full plan, or let it plan itself. Generally, give high-level goals and let the agent decompose — but verify its plan before it executes. Think of it as delegation: you set the direction, the agent figures out the steps.",
+          "commonMistake": "Micromanaging every step (wastes the agent's strengths) or giving zero direction on complex tasks (leads to misaligned output).",
+          "practiceExerciseId": "use-ex-007"
+        },
+        {
+          "id": "use-m4-l2",
+          "title": "Knowing When NOT to Use an Agent",
+          "objectives": [
+            "Identify tasks better suited for direct action or simpler tools",
+            "Avoid over-automation"
+          ],
+          "keyConceptExplanation": "Not every task needs an agent. If you can do it in 30 seconds with a script or a search, an agent adds overhead. Agents shine on tasks that require judgment, multi-step reasoning, or working across multiple tools simultaneously.",
+          "commonMistake": "Using an agent for everything, including tasks where a simple grep or manual edit is faster.",
+          "practiceExerciseId": "use-ex-008"
+        }
+      ]
+    }
+  ]
+}
