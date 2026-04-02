@@ -1,0 +1,37 @@
+{
+  "cli_version": "0.4.9",
+  "checkpoint_id": "4d6b07707088",
+  "session_id": "669b8342-19db-4be0-bbb0-b40dbcf4c031",
+  "strategy": "manual-commit",
+  "created_at": "2026-04-02T20:28:29.038031Z",
+  "branch": "master",
+  "checkpoints_count": 3,
+  "files_touched": [
+    ".claude/skills/ai-tutor-build-agents/SKILL.md",
+    ".claude/skills/ai-tutor-ethics/SKILL.md",
+    ".claude/skills/ai-tutor-onboard/SKILL.md",
+    ".claude/skills/ai-tutor-practice/SKILL.md",
+    ".claude/skills/ai-tutor-reflect/SKILL.md",
+    ".claude/skills/ai-tutor-router/SKILL.md",
+    ".claude/skills/ai-tutor-use-agents/SKILL.md",
+    "data/interactions/actual-logs/kojo-robotic-manipulation-1.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "8402fb2135c9",
+  "token_usage": {
+    "input_tokens": 62,
+    "cache_creation_tokens": 88366,
+    "cache_read_tokens": 2380612,
+    "output_tokens": 56067,
+    "api_call_count": 39
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-04-02T20:28:28.866256Z",
+    "agent_lines": 594,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 594,
+    "agent_percentage": 100
+  }
+}
