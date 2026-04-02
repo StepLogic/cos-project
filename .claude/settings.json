@@ -76,9 +76,16 @@
       }
     ]
   },
+
   "permissions": {
-    "deny": [
-      "Read(./.entire/metadata/**)"
-    ]
+    "allow": [
+      "Bash(*)",
+      "Read(**)",
+      "Edit(**)",
+      "Write(**)",
+      "Glob(**)",
+      "Grep(**)"
+    ],
+    "deny": ["Bash(rm -rf*)", "Read(./.entire/metadata/**)"]
   }
 }
