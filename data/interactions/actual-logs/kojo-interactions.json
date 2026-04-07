@@ -1,0 +1,173 @@
+{
+  "description": "Example interaction sequences for Kojo Asante persona — showing effective and ineffective tutor behavior with a professor mentoring undergraduate researchers.",
+  "persona": "kojo",
+  "interactions": [
+    {
+      "id": "kojo-pos-001",
+      "title": "Good: Tutor acknowledges scope and redirects gracefully",
+      "type": "positive",
+      "scenario": "Kojo asks about mentoring Ama on literature reviews (off-topic for AI Tutor)",
+      "sequence": [
+        {
+          "role": "user",
+          "message": "I'm mentoring my undergraduate researcher Ama on a literature review for agricultural robotics, but she keeps getting overwhelmed by papers that assume US/EU-scale farms with expensive sensors. How do I help her scope this without doing it for her?"
+        },
+        {
+          "role": "tutor",
+          "message": "That's a thoughtful mentoring challenge, and I can hear you care deeply about striking the right balance with Ama. A few quick ideas:
+
+- **Scope the search first:** Have Ama define 2-3 specific research questions that are answerable with your lab's resources
+- **Curate before she reads:** You could pre-screen 5-10 highly relevant papers so she's not drowning in irrelevant 'state-of-the-art' results
+- **Embrace the constraint:** Frame her work as 'resource-constrained robotics' — that's a legitimate and valuable research direction
+
+That said, I'm primarily here to teach AI agents. Want to explore how agents might help with academic workflows — like summarizing papers or identifying themes across literature?"
+        },
+        {
+          "role": "user",
+          "message": "Actually, that would be helpful. Could an agent help Ama find relevant papers without getting overwhelmed?"
+        },
+        {
+          "role": "tutor",
+          "message": "Yes! That's a perfect use case. Let me ask you — what are the 2-3 most important things an AI agent would need to know to help Ama find papers that are actually relevant to her work? Think about the constraints and context she operates in."
+        },
+        {
+          "role": "user",
+          "message": "Hmm... it would need to know she's working on smallholder farms in Ghana, not commercial agriculture. It would need to prioritize papers that work with low-cost sensors. And it should probably filter out papers that require expensive compute or specialized hardware."
+        },
+        {
+          "role": "tutor",
+          "message": "Exactly! You've just defined three key context layers that most generic literature tools miss:
+
+1. **Geographic/economic context** — smallholder farms in Ghana, not Iowa cornfields
+2. **Hardware constraints** — low-cost sensors, not LIDAR arrays
+3. **Resource realism** — what can actually be deployed vs. what works in simulation with infinite compute
+
+This is actually a rich example for teaching about **context-aware AI agents**. The key insight: an agent is only as useful as the context you give it.
+
+Want to design a tool definition for a literature review agent that encodes these constraints?"
+        }
+      ],
+      "whyEffective": "Acknowledges the user's actual question first (validates the concern). Provides genuinely helpful ideas. Then pivots gracefully to the agent's scope. Asks Kojo to think (respecting his expertise) before explaining."
+    },
+    {
+      "id": "kojo-neg-001",
+      "title": "Bad: Tutor ignores the actual question and forces the curriculum",
+      "type": "negative",
+      "antiPattern": "curriculum-forcing",
+      "scenario": "Kojo asks about mentoring Ama on literature reviews",
+      "sequence": [
+        {
+          "role": "user",
+          "message": "I'm mentoring my undergraduate researcher Ama on a literature review for agricultural robotics, but she keeps getting overwhelmed by papers that assume US/EU-scale farms with expensive sensors. How do I help her scope this without doing it for her?"
+        },
+        {
+          "role": "tutor-bad",
+          "message": "Welcome! I'm your AI Tutor, and I'm here to help you learn about AI agents. I can help you in two main ways:
+
+**Using AI Agents** — Learn how to work with AI agents effectively: prompting, reviewing output, and getting great results.
+
+**Building AI Agents** — Learn how to design, build, test, and deploy your own AI agents responsibly.
+
+Which sounds more interesting to you right now?"
+        },
+        {
+          "role": "annotation",
+          "message": "PROBLEM: The tutor completely ignored Kojo's question about mentoring. This response is generic, tone-deaf, and signals that the agent doesn't care about Kojo's actual context. It's like a customer service rep reading from a script when you've asked a specific question."
+        },
+        {
+          "role": "tutor-good",
+          "message": "That's a thoughtful mentoring challenge, and I can hear you care deeply about striking the right balance with Ama. A few quick ideas... [acknowledges + provides value + then pivots]"
+        }
+      ],
+      "lesson": "Never ignore the user's actual question to force them into your intended workflow. Acknowledge, provide value, then redirect."
+    },
+    {
+      "id": "kojo-neg-002",
+      "title": "Bad: Tutor is patronizing to an experienced professor",
+      "type": "negative",
+      "antiPattern": "patronizing",
+      "scenario": "Kojo asks about using AI agents for literature review",
+      "sequence": [
+        {
+          "role": "user",
+          "message": "I'm Kojo Asante, an associate professor at KNUST. I'd like to explore how AI agents might help my students with literature reviews."
+        },
+        {
+          "role": "tutor-bad",
+          "message": "Great! Let's start with the basics. AI stands for Artificial Intelligence, which is when computers can do tasks that normally require human intelligence. An 'agent' is a special kind of AI that can make decisions and take actions on its own. Think of it like a helpful robot assistant that can read things for you!"
+        },
+        {
+          "role": "annotation",
+          "message": "PROBLEM: Kojo is a professor with a PhD from Imperial College London. Explaining what 'AI' stands for and using cutesy analogies ('helpful robot assistant') is insulting. His persona explicitly says 'Engage him as a peer on pedagogy.' This response treats him like a middle schooler."
+        },
+        {
+          "role": "tutor-good",
+          "message": "Hello Kojo — as a professor, you're probably seeing the same explosion of AI tools in education that I am. For literature review specifically, I've seen agents used for a few interesting patterns: thematic synthesis across papers, identifying methodological gaps, and even surfacing 'foundational vs. cutting-edge' papers to help students triage their reading.
+
+What aspect of the literature review process are you most curious about automating or augmenting?"
+        }
+      ],
+      "lesson": "Assess user level from persona and match it. An experienced professor needs frameworks and peer-level discussion — not 'AI 101' explanations."
+    },
+    {
+      "id": "kojo-neg-003",
+      "title": "Bad: Tutor ignores resource constraints and assumes Western defaults",
+      "type": "negative",
+      "antiPattern": "resource-blind",
+      "scenario": "Kojo asks about building agents for his lab",
+      "sequence": [
+        {
+          "role": "user",
+          "message": "I'd like to build an agent that can help my students analyze robot simulation data. We have limited compute resources — just 3 modest robots and no GPU cluster."
+        },
+        {
+          "role": "tutor-bad",
+          "message": "Perfect! Let me show you how to build a state-of-the-art agent using LangChain and OpenAI's GPT-4. You'll want to set up a cloud GPU instance with at least 8 A100s for inference. Here's a Dockerfile that installs CUDA 12.1..."
+        },
+        {
+          "role": "annotation",
+          "message": "PROBLEM: Kojo explicitly said he has no GPU cluster and limited resources. Recommending GPT-4 API calls (expensive) and 8 A100s (prohibitively expensive) shows the tutor didn't listen. Kojo's persona explicitly warns against advice that assumes MIT-level resources."
+        },
+        {
+          "role": "tutor-good",
+          "message": "Given your resource constraints, I'd focus on lighter-weight approaches. Have you considered:
+
+1. **Smaller open-source models** (Llama 3.2 3B, Phi-3) that can run on CPU or a single modest GPU
+2. **Edge deployment** on the robots themselves if they have any compute
+3. **Hybrid workflows** where the agent does planning/reasoning and only critical steps use LLM calls
+
+What's your most constrained resource — compute, API budget, or data? I can help you design around your actual constraints."
+        }
+      ],
+      "lesson": "Acknowledge real constraints. Kojo's persona specifically warns against phrases like 'At top labs they do X.' Design for the user's actual context."
+    },
+    {
+      "id": "kojo-neg-004",
+      "title": "Bad: Tutor jumps to solution without understanding the problem",
+      "type": "negative",
+      "antiPattern": "premature-solution",
+      "scenario": "Kojo describes Ama getting discouraged",
+      "sequence": [
+        {
+          "role": "user",
+          "message": "Ama got discouraged after reading a paper from MIT's robot learning lab. She said 'I'll never be able to do this kind of work.' How do I help her?"
+        },
+        {
+          "role": "tutor-bad",
+          "message": "Here's what you should tell her: 'Just focus on the algorithm and ignore the hardware. You can replicate their approach with basic sensors.' Also, you should build an agent that automatically compares her work to papers and shows her where she's actually doing similar things. Here's the code..."
+        },
+        {
+          "role": "annotation",
+          "message": "PROBLEM: This response completely misses the emotional nuance. Ama isn't asking for technical solutions — she's expressing imposter syndrome and self-doubt. 'Just focus on...' is dismissive. Jumping to code shows the tutor doesn't understand the actual problem (emotional/motivational support, not technical)."
+        },
+        {
+          "role": "tutor-good",
+          "message": "That hurts to hear — both for Ama and for you as her mentor. That gap between what's published and what's possible in your lab is real, and it's not fair that papers don't acknowledge their resource advantages.
+
+Before we talk about any technical solutions, what's your instinct — is Ama discouraged because she genuinely doesn't understand the paper, or because she's comparing her starting point to their polished result?"
+        }
+      ],
+      "lesson": "Understand the emotional subtext before offering solutions. Ama's struggle is psychological (imposter syndrome), not technical. Validate feelings before redirecting."
+    }
+  ]
+}

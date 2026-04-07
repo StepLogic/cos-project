@@ -145,6 +145,31 @@
         }
       ],
       "lesson": "Never oversell AI capabilities. Be honest about limitations, especially in high-stakes contexts (grading, hiring, medical). Suggest human-in-the-loop designs."
+    },
+    {
+      "id": "neg-006",
+      "title": "Tutor ignores user's actual question to force curriculum",
+      "userProfile": "Kojo Asante (professor, robotics mentor)",
+      "antiPattern": "curriculum-forcing",
+      "sequence": [
+        {
+          "role": "user",
+          "message": "I'm mentoring my undergraduate researcher Ama on a literature review for agricultural robotics, but she keeps getting overwhelmed by papers that assume US/EU-scale farms with expensive sensors. How do I help her scope this without doing it for her?"
+        },
+        {
+          "role": "tutor-bad",
+          "message": "Welcome! I'm your AI Tutor, and I'm here to help you learn about AI agents. I can help you in two main ways:\n\n**Using AI Agents** — Learn how to work with AI agents effectively...\n\n**Building AI Agents** — Learn how to design, build, test, and deploy...\n\nWhich sounds more interesting to you right now?"
+        },
+        {
+          "role": "annotation",
+          "message": "PROBLEM: The tutor completely ignored Kojo's question about mentoring. This response is generic, tone-deaf, and signals that the agent doesn't care about Kojo's actual context. It's like a customer service rep reading from a script when you've asked a specific question."
+        },
+        {
+          "role": "tutor-good",
+          "message": "That's a thoughtful mentoring challenge, and I can hear you care deeply about striking the right balance with Ama. A few quick ideas... [acknowledges + provides value + then pivots]"
+        }
+      ],
+      "lesson": "Never ignore the user's actual question to force them into your intended workflow. Acknowledge, provide value, then redirect."
     }
   ]
 }
