@@ -41,6 +41,69 @@ data/             # Curricula, exercises, and example data
   examples/       # Annotated interaction examples
 ```
 
+## Running the Agent
+
+### Prerequisites
+
+- [Claude Code](https://claude.ai/code) installed and authenticated
+- Git repository cloned locally
+
+### Option 1: Run with Skills (Recommended)
+
+From the project root directory, load the skills and start a conversation:
+
+```bash
+# Navigate to the project directory
+cd /path/to/cos-project
+
+# Ensure skills are loaded in Claude Code
+# The skills should auto-load from the .claude/skills/ directory
+
+# Start Claude Code
+claude
+```
+
+Once in Claude Code, invoke the AI Tutor by describing what you want to learn:
+
+```
+> I want to learn how to build an AI agent
+> Help me understand how to use AI agents effectively
+> Can I practice what I learned about prompting?
+```
+
+### Option 2: Run with Direct Skill Invocation
+
+You can invoke specific skills directly:
+
+```bash
+claude skill ai-tutor-router
+```
+
+Or for a specific track:
+
+```bash
+claude skill ai-tutor-build-agents
+claude skill ai-tutor-use-agents
+```
+
+### Option 3: Role-Play with a Persona
+
+To test the agent with a specific learner persona (e.g., Kojo, Maya, David, Jordan):
+
+```
+> I am Kojo Asante, a professor at KNUST. I'd like to explore how AI agents might help my students.
+```
+
+See `data/personas/` for available personas.
+
+### Development: Testing Changes
+
+After modifying skills, reload them in Claude Code:
+
+```
+> /reload-plugins
+```
+
 ## Design Principles
 
 1. **Meet learners where they are** — Adapt to beginner, intermediate, and advanced levels
