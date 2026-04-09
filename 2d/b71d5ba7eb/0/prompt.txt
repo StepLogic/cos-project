@@ -1,0 +1,13 @@
+Review this project - As an expert prompt engineer - Use CollaborAITE's deep research feature (or another free tool) to look up whether AI agents or tools already exist in your prototype's problem space. If you use CollaborAITE make a new private channel, share it with me, and do your @ai query there (and feel free to share it with others in the class if you like).
+
+First, use meta-prompt engineering with claude opus 4.6 extended thinking, to help write your deep research prompt. Spend at least 5 minutes refining your deep research prompt in a back and forth conversation with claude and/or manually editing.  You can also do that in claude code in your prototype repo (where you should have entire enabled before you start, i.e. run in the terminal in that repo "entire enable"), just be sure to commit the deep research prompt when you are ready to run it.
+
+Note that Claude Code itself cannot run a “deep research”-enabled query.
+
+
+While you are running that deep research query/report (which will take roughly 3-10+ minutes or so), do your own writing about the status quo / existing solutions for your problem.
+  - Run this - use super powers and presetn results in simplfied language to user
+
+---
+
+Run prompt here instead
