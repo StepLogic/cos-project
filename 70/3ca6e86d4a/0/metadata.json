@@ -1,0 +1,32 @@
+{
+  "cli_version": "0.4.9",
+  "checkpoint_id": "703ca6e86d4a",
+  "session_id": "f54a1ffd-7c3f-42e7-975e-6a88eb440d69",
+  "strategy": "manual-commit",
+  "created_at": "2026-04-09T20:52:32.577473Z",
+  "branch": "master",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "specifications/group-10-ai-use-tutor-spec.md"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "f5e4bf294b8b",
+  "checkpoint_transcript_start": 123,
+  "transcript_lines_at_start": 123,
+  "token_usage": {
+    "input_tokens": 294099,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 6174,
+    "api_call_count": 4
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-04-09T20:52:31.92639Z",
+    "agent_lines": 475,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 475,
+    "agent_percentage": 100
+  }
+}

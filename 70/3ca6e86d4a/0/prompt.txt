@@ -1,0 +1,652 @@
+Review this project - As an expert prompt engineer - Use CollaborAITE's deep research feature (or another free tool) to look up whether AI agents or tools already exist in your prototype's problem space. If you use CollaborAITE make a new private channel, share it with me, and do your @ai query there (and feel free to share it with others in the class if you like).
+
+First, use meta-prompt engineering with claude opus 4.6 extended thinking, to help write your deep research prompt. Spend at least 5 minutes refining your deep research prompt in a back and forth conversation with claude and/or manually editing.  You can also do that in claude code in your prototype repo (where you should have entire enabled before you start, i.e. run in the terminal in that repo "entire enable"), just be sure to commit the deep research prompt when you are ready to run it.
+
+Note that Claude Code itself cannot run a “deep research”-enabled query.
+
+
+While you are running that deep research query/report (which will take roughly 3-10+ minutes or so), do your own writing about the status quo / existing solutions for your problem.
+  - Run this - use super powers and presetn results in simplfied language to user
+
+---
+
+Run prompt here instead
+
+---
+
+I am kojo  describe to me how i can use you to asssit in  learning to use ai for my research in autonoumous air vehicles
+
+---
+
+Acting as a world class prompt engineer and Dr. Amy J Ko and Dr. Greg L Nelson, create a prompt for creating a project specification that is elegant, concise, impactful, ... . It should take in a project problem area/opportunity as an input.
+**COS 598/498: Generative AI Agents**
+Agent Project Specification
+Spring 2026 · University of Maine
+# **Project teams are listed here: [S26 Project Groups and Problem/Agent topics:](https://docs.google.com/document/d/REDACTED/edit?tab=t.0) and are by reflection group**
+| Team | Problem/area |
+| :---- | :---- |
+| **Group 10** | **AI Use Tutor** |
+# **Overview**
+In this project, your team will design, prototype, and evaluate an AI agent that lives on the CollaborAITE platform. CollaborAITE is designed to facilitate learning and using AI within a group and class learning context, similar to how Slack or Discord works, except you can also use AI and that use shows up in channels, which makes it easy to share, discuss, and reflect on AI use and how to do it better.
+Learners/users will interact with your agent by @mentioning it in channels, providing documents and context, and engaging in multi-turn dialogue.
+Your agent will be deployed and usable both for the class and for another class on the CollaborAITE platform, and the tools/data provided by that platform includes:
+1. User-uploaded and other class documents in a RAG database
+1. Can include anything uploaded by the user
+2. Will have class slides, activities, conversations in channels, group information
+3. All AI use on CollaborAITE happens within a channel, so your agent can also access prior AI interactions/history from users
+4. Will have information you request from the user (in a user profile “document”)
+5. Will have, if the students/users choose to share them:
+1. prior assignments including reading assignments, writing assignments
+2. student reflections over time
+3. anonymized class session transcripts
+2. Tools:
+1. Web search (similar to prior assignments)
+2. Asking the user for input
+3. Run a sub-agent with a prompt and any data you give it
+Thus, the users will be able to @\<your-AI-agent\> and provide data and prompt/input and do multiple rounds of interaction/dialogue. There will also be a way to display a plan to the user and separate doing each step of the plan (e.g. by organizing/showing the user each a step inside a thread).
+Beyond that, users can also provide other data source or information about themselves, your agent can use tools you write (such as web search, etc), etc.
+After making your specification (not a part of this assignment), your team will make a prototype of your agent using Claude Code and using Claude Code to help write skills for your agent, edit the skills, refine them, then prompt Claude Code. You will then evaluate your agent prototype by yourself and with users, get feedback, and redesign/refine their design.
+**Your group should contain 3–5 people.**
+Your specification should answer five core questions, each corresponding to a section of this document. The instructor will provide you with a mostly-completed draft problem specification to choose from. Your job is to refine that problem statement and complete the remaining sections.
+| The Five Core Questions |
+| :---- |
+| **1\. The Problem:** What are you trying to do? **2\. Why Bother:** Why is this problem important, and why should we care about solving it? **3\. Status Quo:** What are the current solutions and why do they fail? **4\. Your Proposed Agent:** If you had a solution, what would it look like? **5\. Evaluation / Metrics of Success:** How do you know if you solved the problem? |
+| This assignment schedule / steps |
+| :---- |
+| **During class April 9:** Complete a draft of your project specification. Refine the instructor-provided problem statement and fill in all sections below. **Before Class on April 14:** Build a working initial version of your project agent using Claude Code as development and design assistance. You can use the Claude Agents SDK for your project to lowe the technical difficulty (and the flexibility) or use Smolagents or DSPy. (E.G.) Claude Code writes agent skills for CollaborAITE; you edit and refine them. Feel free to use external tools ([https://langfuse.com/](https://langfuse.com/)) **In Class on April 14:** Troubleshooting this process; “open office hours” **before on April 16:** They use your working v1 agents and give feedkack Mini-evaluation with 2–3 real learners/users on CollaborAITE or via the web or other way you have for them to use your agent. **In class on April 16:** You process their feedback, revise your project specification, then iterate and build v2 over the weekend We will also cover security no no’s and the danger trifecta: Access to the internet (uncontrolled sources) Running prompts or code Access to secured/reviewed and validated data that needs to remain private **Before Class on April 21:** Build a working version 2 of your project agent using Claude Code as development and design assistance. .... **In Class on April 21** Troubleshooting this process; “open office hours” ; cover evaluation stuff Designing better evaluation / targeted tasks **On April 23:** They use your working v2 agents and give feedkack Mini-evaluation with 2–3 real learners/users on CollaborAITE. Observe, collect feedback, document what you learned. Revise your specification. **On April 23:** You process their feedback, revise your project specification, then iterate and build v2 over the weekend **April 28** \- reflect on this process, evaluation based on the data and usage data you have, and write some evaluation report, what to iterate on next, deicsion/recommendation on whether this agent should exist and be deployed **April 30** \- Open careers and other discussion for revising/improving this course |
+| Deliverables |
+| :---- |
+| Completed project specification (this document) Working prototype deployed on CollaborAITE (agent responds to @mentions) Design workshop feedback summary (1 page) Mini-evaluation report: what happened, what you learned, what you’d change (1–2 pages) Revised specification reflecting post-evaluation insights |
+# **1\. The Problem**
+*What are you trying to do?*
+| Problem Statement Template |
+| :---- |
+| **Step 1 — State the problem.** Describe a learning challenge that exists. Use one of these frames: (a) This bad thing happens in learning contexts (b) This good thing could happen for learners/users but doesn’t (c) This good thing should happen more in education **Step 2 — Concrete example.** Provide a specific, grounded example. Who is affected? What does it look like in practice? **Step 3 — Prior solutions.** Describe 1–2 existing approaches (tools, pedagogies, platforms) that partially address this problem. **Step 4 — Gap in prior solutions.** Explain what root cause or dimension of the problem prior solutions fail to address. Use one of these frames: Prior solutions don’t address this root cause Prior solutions don’t address this cause well because these reasons Prior solutions don’t address these multiple causes together **Step 5 — Design question.** Pose a question: How might an AI agent, with access to learning context and conversational interaction, address this gap? |
+| Important: No Solutions in the Problem |
+| :---- |
+| **Your problem statement should not refer to a solution.** Saying “a tool that does X doesn’t exist” is not a problem statement. That’s like motivating the need for Instagram by saying “The world is broken because it doesn’t have Instagram.” The problem motivating Instagram would be something like: “People love sharing photos, but all existing solutions for sharing them involve clumsy, impersonal file sharing.” |
+**Example Problem Statement**
+*The internet and social media platforms are often used as platforms to advance racist causes and racist hate speech. For example, Facebook’s most widely shared content are regularly the perspectives of racist commentators, and Twitter is often a place where Black Americans are harassed and bullied by white supremacists. Some social media platforms offer modest ways of mitigating the harm of racist speech, such as blocking people on Twitter or muting particular news sources, but these designs do little to eradicate racism itself. Within the constraints of the United States’ First Amendment, how can the internet become a place that not only prevents the spread of racist ideas, but also helps the people that believe those ideas overcome their racist bias?*
+**Your Problem Statement**
+\[Refine the instructor-provided areas/opporutnites shared with your group/chosen by your group here. Add your own examples, sharpen the gap analysis, etc.
+You may do several problem statements to help you choose among problems\]
+# **2\. Why Bother**
+*Why is this problem important, and why should we care about solving it?*
+Go beyond the problem statement to make a case for why this problem matters. Who is affected and how many? What are the consequences if the problem continues unsolved? Why is now the right time to address it, given what AI agents can do on a platform like CollaborAITE?
+| Guiding Questions |
+| :---- |
+| **Scale:** How many learners/users experience this problem? In what contexts (courses, levels, institutions)? **Consequences:** What happens when this problem goes unaddressed? What do learners/users lose? **Equity dimension:** Does this problem disproportionately affect certain learners/users? Which ones and why? **Timeliness:** Why is an AI agent well-positioned to help now? What about CollaborAITE’s data and interaction model makes this tractable? |
+**Your Motivation**
+\[Write 1–2 paragraphs making the case for why this problem is worth solving.\]
+# **3\. Status Quo**
+*What are the current solutions and why do they fail?*
+Run a deep research report to help you analyze existing solutions (tools, strategies, platforms, pedagogical approaches) that attempt to address the problem. For each, explain what it does, how learners/users interact with it, and where it falls short.
+| Prior Solution Template (repeat for 2–3 solutions) |
+| :---- |
+| **Solution name and type** Overview paragraph: What is this solution? How does it work? **How learners/users currently use it** A task flow diagram or step-by-step description of what the learner does with this solution. (If using a diagram, provide a link to an editable version.) **Where it falls short** What root cause does this solution not address? What about the user/learner experience and human-AI coordination is unsatisfying or problematic? **How your agent will differ** A short paragraph on what your agent does differently and why that matters. |
+**Prior Solution Category 1 (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+**Prior Solution Category 2 (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+...
+**Prior Solution Category: Exisitng AI Agents (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+# **4\. Your Proposed Agent**
+*If you had a solution, what would it look like?*
+| Agent Name | *A descriptive name for your agent* |
+| :---- | :---- |
+| Description | *3–10 words summarizing what the agent does* |
+| :---- | :---- |
+| Team Name | *Your team’s name* |
+| :---- | :---- |
+| Team Members | *Names of all 3–5 team members* |
+| :---- | :---- |
+## **4a. Agent Summary**
+Write a summary paragraph describing the core functionality your agent provides. What does it do for learners/users? What’s the core loop of interaction? For each root cause or gap identified in your problem statement, include a paragraph on how the agent specifically addresses it. Be concrete about mechanisms/specific features and interactions that better address those root causes/gaps.
+\[Write your summary here\]
+## **4b. Data Sources**
+Your agent lives on CollaborAITE and has access to a RAG knowledge base (in addition to other RAG databases or other data sources you add). Describe which data sources your agent uses, what it extracts or infers from each, and how that data helps address the problem’s root cause.
+| CollaborAITE Data Sources |
+| :---- |
+| Check and describe each data source your agent will use: **Class slides and activities:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Channel conversations (these may/do include AI queries):** \[if applicable, briefly summarize how/what the agent uses this for?\] **User profile information:** \[if applicable, briefly summarize how/what the agent uses this for?\] **User-uploaded documents:** \[What additional context might learners/users have already provided or done before in the moment?\] **May not be provided by the system / platform (CollaborAITE):** **Prior assignments and reflections:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Anonymized session transcripts:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Also describe what the agent deliberately does NOT access and why** (privacy-by-design), one sentence for each. |
+| |
+## **4c. Other Data Sources**
+Your agent may benefit from data that is not already part of CollaborAITE’s knowledge base. If your design depends on external information, describe it here. Be specific about what the data is, where it comes from, and how you would get it into the system.
+| External Data Source Template (repeat as needed) |
+| :---- |
+| **Data source name and type:** \[e.g., Stack Overflow Q\&A posts, textbook chapter PDFs, department course catalog, curated research papers, external API data\] **What it contains:** \[Describe the content and structure of this data source\] **Why the agent needs it:** \[What capability or interaction does this data enable that CollaborAITE’s existing data cannot support?\] **How it would be added:** \[Would it be uploaded to the RAG knowledge base? Accessed via an API? Provided by the learner at interaction time? Curated by the instructor?\] **Freshness and maintenance:** \[Is this a one-time upload or does it need regular updates? Who is responsible for keeping it current?\] **Licensing and privacy:** \[Are there copyright, licensing, or privacy considerations? Is the data publicly available or restricted?\] |
+\[Describe any external data sources here, or write “None — our agent relies entirely on CollaborAITE’s existing data.” and describe why\]
+## **4d. Human-Agent Collaboration Flow**
+Create a task flow diagram showing the full interaction cycle between the learner and your agent. The diagram should show:
+- [ ] **What the user/learner does:** initiating the interaction, providing context, reviewing agent output, giving feedback
+- [ ] **What the agent does:** retrieving data from the RAG knowledge base, generating responses, presenting plans in threads, asking clarifying questions
+- [ ] **How they collaborate:** multi-turn refinement, learner control points, when the agent uses threaded plan displays, agent transparency about its reasoning
+Provide a link to an editable version of this diagram.
+\[Link to diagram: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\]
+## **4e. Example Interactions**
+Write 2–3 example @agent conversations showing realistic multi-turn exchanges on CollaborAITE. These should demonstrate different use cases or learner needs.
+| Interaction Template (repeat 2–3×) |
+| :---- |
+| **Scenario title:** A short name for this use case **Learner context:** What class is the learner in? What are they working on? What just happened? **Conversation:** @learner: \[what the learner types, including any documents or context they attach\] @YourAgent: \[agent response, noting any plan steps displayed in threads\] @learner: \[follow-up or feedback\] @YourAgent: \[refined response\] **Data sources used:** Which RAG data did the agent draw on? |
+**Interaction 1**
+\[Write your first example interaction here\]
+**Interaction 2**
+\[Write your second example interaction here\]
+**Interaction 3 (optional)**
+\[Write your third example interaction here\]
+## **4f. Harm Considerations**
+AI agents in learning contexts can cause real harm. Consider your agent’s specific domain and identify the most serious risks.
+| Harm Dimensions to Consider |
+| :---- |
+| **Accuracy harms:** Could the agent give wrong information? Hallucinate sources? Misrepresent course content? **Equity harms:** Could the agent work better for some learners/users than others? Whose language, culture, or learning style might it fail to serve? **Agency harms:** Could the agent make learners/users passive? Undermine their metacognition? Do the thinking for them? **Privacy harms:** The agent accesses learner reflections, conversations, and assignments. What could go wrong? **Trust harms:** Could learners/users over-trust or under-trust the agent? What happens when it’s wrong? |
+For your agent, describe the 2–3 most serious potential harms and how your design mitigates each:
+| Potential Harm | Likelihood | Design Safeguard | What If It Fails? |
+| :---- | :---- | :---- | :---- |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+## **5\. Technical Architecture and Design for the Agent**
+\[describe the features, platform, programming language, and other technical decisions. Describe the major modules and implementation plan across the different weeks to be built and used/piloted with users\]
+# **6\. Evaluation / Metrics of Success**
+*How do you know if you solved the problem?*
+Define what success looks like for your agent. This section guides both your design workshop (Day 5\) and your mini-evaluation with real learners/users (Days 6–7).
+## **5a. Success Criteria**
+What would need to be true for your agent to have “worked”? Define 2–3 concrete success criteria tied to the problem you identified.
+| Success Criteria Template |
+| :---- |
+| **Criterion 1:** \[e.g., learners/users can identify connections between lecture concepts they didn’t previously see\] **How you’d observe it:** \[e.g., In the evaluation, learners/users articulate at least one new connection after interacting with the agent\] **Criterion 2:** \[e.g., learners/users feel the agent respects their autonomy rather than doing their thinking for them\] **How you’d observe it:** \[e.g., Post-interaction survey question; observe whether learners/users rephrase agent output or copy it directly\] **Criterion 3:** \[e.g., The agent uses RAG data accurately and doesn’t hallucinate course content\] **How you’d observe it:** \[e.g., Manually check 5 agent responses against source materials\] |
+## **5b. Design Workshop Plan**
+Describe how you will present your agent to peers and collect structured feedback:
+- [ ] What will you demo or walk through?
+- [ ] What specific questions will you ask your peers?
+- [ ] How will you capture and organize the feedback?
+\[Describe your workshop plan here\]
+## **5c. Mini-Evaluation Plan**
+Describe how you will evaluate your prototype with 2–3 real learners/users on CollaborAITE:
+| Mini-Evaluation Plan Template |
+| :---- |
+| **Participants:** Who will you recruit? From which class? **Task:** What will you ask learners/users to do with the agent? Be specific. **Observation method:** Will you watch live? Review conversation logs? Both? **Feedback collection:** Short interview? Survey? Think-aloud? What questions will you ask? **Analysis:** How will you make sense of what you observe? What are you looking for? |
+\[Describe your evaluation plan here\]
+## **5c. Final Evaluation Plan**
+Describe how you will evaluate your AI Agent with the gathered user interaction logs (chats etc) from using your agent and/or other data and ways of gathering evaluation data.
+```
+**COS 598/498: Generative AI Agents**
+Agent Project Specification
+Spring 2026 · University of Maine
+# **Project teams are listed here: [S26 Project Groups and Problem/Agent topics:](https://docs.google.com/document/d/REDACTED/edit?tab=t.0) and are by reflection group**
+| Team | Problem/area |
+| :---- | :---- |
+| **Group 1** | **Neurodiversity Support Agent** |
+| **Group 2** | **Goal-Aligned Education Agent** |
+| **Group 3** | **Ethical Career Agent** |
+| **Group 4** | **Neurodiversity Support Agent** |
+| **Group 6** | **Personal AI Reflection Agent** |
+| **Group 7** | **Collaborative Learning Agent** |
+| **Group 9** | **Collaborative Learning Agent** |
+| **Group 10** | **AI Use Tutor** |
+# **Overview**
+In this project, your team will design, prototype, and evaluate an AI agent that lives on the CollaborAITE platform. CollaborAITE is designed to facilitate learning and using AI within a group and class learning context, similar to how Slack or Discord works, except you can also use AI and that use shows up in channels, which makes it easy to share, discuss, and reflect on AI use and how to do it better.
+Learners/users will interact with your agent by @mentioning it in channels, providing documents and context, and engaging in multi-turn dialogue.
+Your agent will be deployed and usable both for the class and for another class on the CollaborAITE platform, and the tools/data provided by that platform includes:
+1. User-uploaded and other class documents in a RAG database
+1. Can include anything uploaded by the user
+2. Will have class slides, activities, conversations in channels, group information
+3. All AI use on CollaborAITE happens within a channel, so your agent can also access prior AI interactions/history from users
+4. Will have information you request from the user (in a user profile “document”)
+5. Will have, if the students/users choose to share them:
+1. prior assignments including reading assignments, writing assignments
+2. student reflections over time
+3. anonymized class session transcripts
+2. Tools:
+1. Web search (similar to prior assignments)
+2. Asking the user for input
+3. Run a sub-agent with a prompt and any data you give it
+Thus, the users will be able to @\<your-AI-agent\> and provide data and prompt/input and do multiple rounds of interaction/dialogue. There will also be a way to display a plan to the user and separate doing each step of the plan (e.g. by organizing/showing the user each a step inside a thread).
+Beyond that, users can also provide other data source or information about themselves, your agent can use tools you write (such as web search, etc), etc.
+After making your specification (not a part of this assignment), your team will make a prototype of your agent using Claude Code and using Claude Code to help write skills for your agent, edit the skills, refine them, then prompt Claude Code. You will then evaluate your agent prototype by yourself and with users, get feedback, and redesign/refine their design.
+**Your group should contain 3–5 people.**
+Your specification should answer five core questions, each corresponding to a section of this document. The instructor will provide you with a mostly-completed draft problem specification to choose from. Your job is to refine that problem statement and complete the remaining sections.
+| The Five Core Questions |
+| :---- |
+| **1\. The Problem:** What are you trying to do? **2\. Why Bother:** Why is this problem important, and why should we care about solving it? **3\. Status Quo:** What are the current solutions and why do they fail? **4\. Your Proposed Agent:** If you had a solution, what would it look like? **5\. Evaluation / Metrics of Success:** How do you know if you solved the problem? |
+| This assignment schedule / steps |
+| :---- |
+| **During class April 9:** Complete a draft of your project specification. Refine the instructor-provided problem statement and fill in all sections below. **Before Class on April 14:** Build a working initial version of your project agent using Claude Code as development and design assistance. You can use the Claude Agents SDK for your project to lowe the technical difficulty (and the flexibility) or use Smolagents or DSPy. (E.G.) Claude Code writes agent skills for CollaborAITE; you edit and refine them. Feel free to use external tools ([https://langfuse.com/](https://langfuse.com/)) **In Class on April 14:** Troubleshooting this process; “open office hours” **before on April 16:** They use your working v1 agents and give feedkack Mini-evaluation with 2–3 real learners/users on CollaborAITE or via the web or other way you have for them to use your agent. **In class on April 16:** You process their feedback, revise your project specification, then iterate and build v2 over the weekend We will also cover security no no’s and the danger trifecta: Access to the internet (uncontrolled sources) Running prompts or code Access to secured/reviewed and validated data that needs to remain private **Before Class on April 21:** Build a working version 2 of your project agent using Claude Code as development and design assistance. .... **In Class on April 21** Troubleshooting this process; “open office hours” ; cover evaluation stuff Designing better evaluation / targeted tasks **On April 23:** They use your working v2 agents and give feedkack Mini-evaluation with 2–3 real learners/users on CollaborAITE. Observe, collect feedback, document what you learned. Revise your specification. **On April 23:** You process their feedback, revise your project specification, then iterate and build v2 over the weekend **April 28** \- reflect on this process, evaluation based on the data and usage data you have, and write some evaluation report, what to iterate on next, deicsion/recommendation on whether this agent should exist and be deployed **April 30** \- Open careers and other discussion for revising/improving this course |
+| Deliverables |
+| :---- |
+| Completed project specification (this document) Working prototype deployed on CollaborAITE (agent responds to @mentions) Design workshop feedback summary (1 page) Mini-evaluation report: what happened, what you learned, what you’d change (1–2 pages) Revised specification reflecting post-evaluation insights |
+# **1\. The Problem**
+*What are you trying to do?*
+| Problem Statement Template |
+| :---- |
+| **Step 1 — State the problem.** Describe a learning challenge that exists. Use one of these frames: (a) This bad thing happens in learning contexts (b) This good thing could happen for learners/users but doesn’t (c) This good thing should happen more in education **Step 2 — Concrete example.** Provide a specific, grounded example. Who is affected? What does it look like in practice? **Step 3 — Prior solutions.** Describe 1–2 existing approaches (tools, pedagogies, platforms) that partially address this problem. **Step 4 — Gap in prior solutions.** Explain what root cause or dimension of the problem prior solutions fail to address. Use one of these frames: Prior solutions don’t address this root cause Prior solutions don’t address this cause well because these reasons Prior solutions don’t address these multiple causes together **Step 5 — Design question.** Pose a question: How might an AI agent, with access to learning context and conversational interaction, address this gap? |
+| Important: No Solutions in the Problem |
+| :---- |
+| **Your problem statement should not refer to a solution.** Saying “a tool that does X doesn’t exist” is not a problem statement. That’s like motivating the need for Instagram by saying “The world is broken because it doesn’t have Instagram.” The problem motivating Instagram would be something like: “People love sharing photos, but all existing solutions for sharing them involve clumsy, impersonal file sharing.” |
+**Example Problem Statement**
+*The internet and social media platforms are often used as platforms to advance racist causes and racist hate speech. For example, Facebook’s most widely shared content are regularly the perspectives of racist commentators, and Twitter is often a place where Black Americans are harassed and bullied by white supremacists. Some social media platforms offer modest ways of mitigating the harm of racist speech, such as blocking people on Twitter or muting particular news sources, but these designs do little to eradicate racism itself. Within the constraints of the United States’ First Amendment, how can the internet become a place that not only prevents the spread of racist ideas, but also helps the people that believe those ideas overcome their racist bias?*
+**Your Problem Statement**
+\[Refine the instructor-provided areas/opporutnites shared with your group/chosen by your group here. Add your own examples, sharpen the gap analysis, etc.
+You may do several problem statements to help you choose among problems\]
+# **2\. Why Bother**
+*Why is this problem important, and why should we care about solving it?*
+Go beyond the problem statement to make a case for why this problem matters. Who is affected and how many? What are the consequences if the problem continues unsolved? Why is now the right time to address it, given what AI agents can do on a platform like CollaborAITE?
+| Guiding Questions |
+| :---- |
+| **Scale:** How many learners/users experience this problem? In what contexts (courses, levels, institutions)? **Consequences:** What happens when this problem goes unaddressed? What do learners/users lose? **Equity dimension:** Does this problem disproportionately affect certain learners/users? Which ones and why? **Timeliness:** Why is an AI agent well-positioned to help now? What about CollaborAITE’s data and interaction model makes this tractable? |
+**Your Motivation**
+\[Write 1–2 paragraphs making the case for why this problem is worth solving.\]
+# **3\. Status Quo**
+*What are the current solutions and why do they fail?*
+Run a deep research report to help you analyze existing solutions (tools, strategies, platforms, pedagogical approaches) that attempt to address the problem. For each, explain what it does, how learners/users interact with it, and where it falls short.
+| Prior Solution Template (repeat for 2–3 solutions) |
+| :---- |
+| **Solution name and type** Overview paragraph: What is this solution? How does it work? **How learners/users currently use it** A task flow diagram or step-by-step description of what the learner does with this solution. (If using a diagram, provide a link to an editable version.) **Where it falls short** What root cause does this solution not address? What about the user/learner experience and human-AI coordination is unsatisfying or problematic? **How your agent will differ** A short paragraph on what your agent does differently and why that matters. |
+**Prior Solution Category 1 (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+**Prior Solution Category 2 (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+...
+**Prior Solution Category: Exisitng AI Agents (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+# **4\. Your Proposed Agent**
+*If you had a solution, what would it look like?*
+| Agent Name | *A descriptive name for your agent* |
+| :---- | :---- |
+| Description | *3–10 words summarizing what the agent does* |
+| :---- | :---- |
+| Team Name | *Your team’s name* |
+| :---- | :---- |
+| Team Members | *Names of all 3–5 team members* |
+| :---- | :---- |
+## **4a. Agent Summary**
+Write a summary paragraph describing the core functionality your agent provides. What does it do for learners/users? What’s the core loop of interaction? For each root cause or gap identified in your problem statement, include a paragraph on how the agent specifically addresses it. Be concrete about mechanisms/specific features and interactions that better address those root causes/gaps.
+\[Write your summary here\]
+## **4b. Data Sources**
+Your agent lives on CollaborAITE and has access to a RAG knowledge base (in addition to other RAG databases or other data sources you add). Describe which data sources your agent uses, what it extracts or infers from each, and how that data helps address the problem’s root cause.
+| CollaborAITE Data Sources |
+| :---- |
+| Check and describe each data source your agent will use: **Class slides and activities:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Channel conversations (these may/do include AI queries):** \[if applicable, briefly summarize how/what the agent uses this for?\] **User profile information:** \[if applicable, briefly summarize how/what the agent uses this for?\] **User-uploaded documents:** \[What additional context might learners/users have already provided or done before in the moment?\] **May not be provided by the system / platform (CollaborAITE):** **Prior assignments and reflections:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Anonymized session transcripts:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Also describe what the agent deliberately does NOT access and why** (privacy-by-design), one sentence for each. |
+| |
+## **4c. Other Data Sources**
+Your agent may benefit from data that is not already part of CollaborAITE’s knowledge base. If your design depends on external information, describe it here. Be specific about what the data is, where it comes from, and how you would get it into the system.
+| External Data Source Template (repeat as needed) |
+| :---- |
+| **Data source name and type:** \[e.g., Stack Overflow Q\&A posts, textbook chapter PDFs, department course catalog, curated research papers, external API data\] **What it contains:** \[Describe the content and structure of this data source\] **Why the agent needs it:** \[What capability or interaction does this data enable that CollaborAITE’s existing data cannot support?\] **How it would be added:** \[Would it be uploaded to the RAG knowledge base? Accessed via an API? Provided by the learner at interaction time? Curated by the instructor?\] **Freshness and maintenance:** \[Is this a one-time upload or does it need regular updates? Who is responsible for keeping it current?\] **Licensing and privacy:** \[Are there copyright, licensing, or privacy considerations? Is the data publicly available or restricted?\] |
+\[Describe any external data sources here, or write “None — our agent relies entirely on CollaborAITE’s existing data.” and describe why\]
+## **4d. Human-Agent Collaboration Flow**
+Create a task flow diagram showing the full interaction cycle between the learner and your agent. The diagram should show:
+- [ ] **What the user/learner does:** initiating the interaction, providing context, reviewing agent output, giving feedback
+- [ ] **What the agent does:** retrieving data from the RAG knowledge base, generating responses, presenting plans in threads, asking clarifying questions
+- [ ] **How they collaborate:** multi-turn refinement, learner control points, when the agent uses threaded plan displays, agent transparency about its reasoning
+Provide a link to an editable version of this diagram.
+\[Link to diagram: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\]
+## **4e. Example Interactions**
+Write 2–3 example @agent conversations showing realistic multi-turn exchanges on CollaborAITE. These should demonstrate different use cases or learner needs.
+| Interaction Template (repeat 2–3×) |
+| :---- |
+| **Scenario title:** A short name for this use case **Learner context:** What class is the learner in? What are they working on? What just happened? **Conversation:** @learner: \[what the learner types, including any documents or context they attach\] @YourAgent: \[agent response, noting any plan steps displayed in threads\] @learner: \[follow-up or feedback\] @YourAgent: \[refined response\] **Data sources used:** Which RAG data did the agent draw on? |
+**Interaction 1**
+\[Write your first example interaction here\]
+**Interaction 2**
+\[Write your second example interaction here\]
+**Interaction 3 (optional)**
+\[Write your third example interaction here\]
+## **4f. Harm Considerations**
+AI agents in learning contexts can cause real harm. Consider your agent’s specific domain and identify the most serious risks.
+| Harm Dimensions to Consider |
+| :---- |
+| **Accuracy harms:** Could the agent give wrong information? Hallucinate sources? Misrepresent course content? **Equity harms:** Could the agent work better for some learners/users than others? Whose language, culture, or learning style might it fail to serve? **Agency harms:** Could the agent make learners/users passive? Undermine their metacognition? Do the thinking for them? **Privacy harms:** The agent accesses learner reflections, conversations, and assignments. What could go wrong? **Trust harms:** Could learners/users over-trust or under-trust the agent? What happens when it’s wrong? |
+For your agent, describe the 2–3 most serious potential harms and how your design mitigates each:
+| Potential Harm | Likelihood | Design Safeguard | What If It Fails? |
+| :---- | :---- | :---- | :---- |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+## **5\. Technical Architecture and Design for the Agent**
+\[describe the features, platform, programming language, and other technical decisions. Describe the major modules and implementation plan across the different weeks to be built and used/piloted with users\]
+# **6\. Evaluation / Metrics of Success**
+*How do you know if you solved the problem?*
+Define what success looks like for your agent. This section guides both your design workshop (Day 5\) and your mini-evaluation with real learners/users (Days 6–7).
+## **5a. Success Criteria**
+What would need to be true for your agent to have “worked”? Define 2–3 concrete success criteria tied to the problem you identified.
+| Success Criteria Template |
+| :---- |
+| **Criterion 1:** \[e.g., learners/users can identify connections between lecture concepts they didn’t previously see\] **How you’d observe it:** \[e.g., In the evaluation, learners/users articulate at least one new connection after interacting with the agent\] **Criterion 2:** \[e.g., learners/users feel the agent respects their autonomy rather than doing their thinking for them\] **How you’d observe it:** \[e.g., Post-interaction survey question; observe whether learners/users rephrase agent output or copy it directly\] **Criterion 3:** \[e.g., The agent uses RAG data accurately and doesn’t hallucinate course content\] **How you’d observe it:** \[e.g., Manually check 5 agent responses against source materials\] |
+## **5b. Design Workshop Plan**
+Describe how you will present your agent to peers and collect structured feedback:
+- [ ] What will you demo or walk through?
+- [ ] What specific questions will you ask your peers?
+- [ ] How will you capture and organize the feedback?
+\[Describe your workshop plan here\]
+## **5c. Mini-Evaluation Plan**
+Describe how you will evaluate your prototype with 2–3 real learners/users on CollaborAITE:
+| Mini-Evaluation Plan Template |
+| :---- |
+| **Participants:** Who will you recruit? From which class? **Task:** What will you ask learners/users to do with the agent? Be specific. **Observation method:** Will you watch live? Review conversation logs? Both? **Feedback collection:** Short interview? Survey? Think-aloud? What questions will you ask? **Analysis:** How will you make sense of what you observe? What are you looking for? |
+\[Describe your evaluation plan here\]
+## **5c. Final Evaluation Plan**
+Describe how you will evaluate your AI Agent with the gathered user interaction logs (chats etc) from using your agent and/or other data and ways of gathering evaluation data.
+```
+Now output the prompt (DO NOT DO THE SPECIFCIATION)
+
+---
+
+[Request interrupted by user]
+
+---
+
+Acting as a world class prompt engineer and Dr. Amy J Ko and Dr. Greg L Nelson, create a prompt for creating a project specification that is elegant, concise, impactful, ... . It should take in a project problem area/opportunity as an input.
+**COS 598/498: Generative AI Agents**
+Agent Project Specification
+Spring 2026 · University of Maine
+# **Project teams are listed here: [S26 Project Groups and Problem/Agent topics:](https://docs.google.com/document/d/REDACTED/edit?tab=t.0) and are by reflection group**
+| Team | Problem/area |
+| :---- | :---- |
+| **Group 10** | **AI Use Tutor** |
+# **Overview**
+In this project, your team will design, prototype, and evaluate an AI agent that lives on the CollaborAITE platform. CollaborAITE is designed to facilitate learning and using AI within a group and class learning context, similar to how Slack or Discord works, except you can also use AI and that use shows up in channels, which makes it easy to share, discuss, and reflect on AI use and how to do it better.
+Learners/users will interact with your agent by @mentioning it in channels, providing documents and context, and engaging in multi-turn dialogue.
+Your agent will be deployed and usable both for the class and for another class on the CollaborAITE platform, and the tools/data provided by that platform includes:
+1. User-uploaded and other class documents in a RAG database
+1. Can include anything uploaded by the user
+2. Will have class slides, activities, conversations in channels, group information
+3. All AI use on CollaborAITE happens within a channel, so your agent can also access prior AI interactions/history from users
+4. Will have information you request from the user (in a user profile “document”)
+5. Will have, if the students/users choose to share them:
+1. prior assignments including reading assignments, writing assignments
+2. student reflections over time
+3. anonymized class session transcripts
+2. Tools:
+1. Web search (similar to prior assignments)
+2. Asking the user for input
+3. Run a sub-agent with a prompt and any data you give it
+Thus, the users will be able to @\<your-AI-agent\> and provide data and prompt/input and do multiple rounds of interaction/dialogue. There will also be a way to display a plan to the user and separate doing each step of the plan (e.g. by organizing/showing the user each a step inside a thread).
+Beyond that, users can also provide other data source or information about themselves, your agent can use tools you write (such as web search, etc), etc.
+After making your specification (not a part of this assignment), your team will make a prototype of your agent using Claude Code and using Claude Code to help write skills for your agent, edit the skills, refine them, then prompt Claude Code. You will then evaluate your agent prototype by yourself and with users, get feedback, and redesign/refine their design.
+**Your group should contain 3–5 people.**
+Your specification should answer five core questions, each corresponding to a section of this document. The instructor will provide you with a mostly-completed draft problem specification to choose from. Your job is to refine that problem statement and complete the remaining sections.
+| The Five Core Questions |
+| :---- |
+| **1\. The Problem:** What are you trying to do? **2\. Why Bother:** Why is this problem important, and why should we care about solving it? **3\. Status Quo:** What are the current solutions and why do they fail? **4\. Your Proposed Agent:** If you had a solution, what would it look like? **5\. Evaluation / Metrics of Success:** How do you know if you solved the problem? |
+| This assignment schedule / steps |
+| :---- |
+| **During class April 9:** Complete a draft of your project specification. Refine the instructor-provided problem statement and fill in all sections below. **Before Class on April 14:** Build a working initial version of your project agent using Claude Code as development and design assistance. You can use the Claude Agents SDK for your project to lowe the technical difficulty (and the flexibility) or use Smolagents or DSPy. (E.G.) Claude Code writes agent skills for CollaborAITE; you edit and refine them. Feel free to use external tools ([https://langfuse.com/](https://langfuse.com/)) **In Class on April 14:** Troubleshooting this process; “open office hours” **before on April 16:** They use your working v1 agents and give feedkack Mini-evaluation with 2–3 real learners/users on CollaborAITE or via the web or other way you have for them to use your agent. **In class on April 16:** You process their feedback, revise your project specification, then iterate and build v2 over the weekend We will also cover security no no’s and the danger trifecta: Access to the internet (uncontrolled sources) Running prompts or code Access to secured/reviewed and validated data that needs to remain private **Before Class on April 21:** Build a working version 2 of your project agent using Claude Code as development and design assistance. .... **In Class on April 21** Troubleshooting this process; “open office hours” ; cover evaluation stuff Designing better evaluation / targeted tasks **On April 23:** They use your working v2 agents and give feedkack Mini-evaluation with 2–3 real learners/users on CollaborAITE. Observe, collect feedback, document what you learned. Revise your specification. **On April 23:** You process their feedback, revise your project specification, then iterate and build v2 over the weekend **April 28** \- reflect on this process, evaluation based on the data and usage data you have, and write some evaluation report, what to iterate on next, deicsion/recommendation on whether this agent should exist and be deployed **April 30** \- Open careers and other discussion for revising/improving this course |
+| Deliverables |
+| :---- |
+| Completed project specification (this document) Working prototype deployed on CollaborAITE (agent responds to @mentions) Design workshop feedback summary (1 page) Mini-evaluation report: what happened, what you learned, what you’d change (1–2 pages) Revised specification reflecting post-evaluation insights |
+# **1\. The Problem**
+*What are you trying to do?*
+| Problem Statement Template |
+| :---- |
+| **Step 1 — State the problem.** Describe a learning challenge that exists. Use one of these frames: (a) This bad thing happens in learning contexts (b) This good thing could happen for learners/users but doesn’t (c) This good thing should happen more in education **Step 2 — Concrete example.** Provide a specific, grounded example. Who is affected? What does it look like in practice? **Step 3 — Prior solutions.** Describe 1–2 existing approaches (tools, pedagogies, platforms) that partially address this problem. **Step 4 — Gap in prior solutions.** Explain what root cause or dimension of the problem prior solutions fail to address. Use one of these frames: Prior solutions don’t address this root cause Prior solutions don’t address this cause well because these reasons Prior solutions don’t address these multiple causes together **Step 5 — Design question.** Pose a question: How might an AI agent, with access to learning context and conversational interaction, address this gap? |
+| Important: No Solutions in the Problem |
+| :---- |
+| **Your problem statement should not refer to a solution.** Saying “a tool that does X doesn’t exist” is not a problem statement. That’s like motivating the need for Instagram by saying “The world is broken because it doesn’t have Instagram.” The problem motivating Instagram would be something like: “People love sharing photos, but all existing solutions for sharing them involve clumsy, impersonal file sharing.” |
+**Example Problem Statement**
+*The internet and social media platforms are often used as platforms to advance racist causes and racist hate speech. For example, Facebook’s most widely shared content are regularly the perspectives of racist commentators, and Twitter is often a place where Black Americans are harassed and bullied by white supremacists. Some social media platforms offer modest ways of mitigating the harm of racist speech, such as blocking people on Twitter or muting particular news sources, but these designs do little to eradicate racism itself. Within the constraints of the United States’ First Amendment, how can the internet become a place that not only prevents the spread of racist ideas, but also helps the people that believe those ideas overcome their racist bias?*
+**Your Problem Statement**
+\[Refine the instructor-provided areas/opporutnites shared with your group/chosen by your group here. Add your own examples, sharpen the gap analysis, etc.
+You may do several problem statements to help you choose among problems\]
+# **2\. Why Bother**
+*Why is this problem important, and why should we care about solving it?*
+Go beyond the problem statement to make a case for why this problem matters. Who is affected and how many? What are the consequences if the problem continues unsolved? Why is now the right time to address it, given what AI agents can do on a platform like CollaborAITE?
+| Guiding Questions |
+| :---- |
+| **Scale:** How many learners/users experience this problem? In what contexts (courses, levels, institutions)? **Consequences:** What happens when this problem goes unaddressed? What do learners/users lose? **Equity dimension:** Does this problem disproportionately affect certain learners/users? Which ones and why? **Timeliness:** Why is an AI agent well-positioned to help now? What about CollaborAITE’s data and interaction model makes this tractable? |
+**Your Motivation**
+\[Write 1–2 paragraphs making the case for why this problem is worth solving.\]
+# **3\. Status Quo**
+*What are the current solutions and why do they fail?*
+Run a deep research report to help you analyze existing solutions (tools, strategies, platforms, pedagogical approaches) that attempt to address the problem. For each, explain what it does, how learners/users interact with it, and where it falls short.
+| Prior Solution Template (repeat for 2–3 solutions) |
+| :---- |
+| **Solution name and type** Overview paragraph: What is this solution? How does it work? **How learners/users currently use it** A task flow diagram or step-by-step description of what the learner does with this solution. (If using a diagram, provide a link to an editable version.) **Where it falls short** What root cause does this solution not address? What about the user/learner experience and human-AI coordination is unsatisfying or problematic? **How your agent will differ** A short paragraph on what your agent does differently and why that matters. |
+**Prior Solution Category 1 (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+**Prior Solution Category 2 (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+...
+**Prior Solution Category: Exisitng AI Agents (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+# **4\. Your Proposed Agent**
+*If you had a solution, what would it look like?*
+| Agent Name | *A descriptive name for your agent* |
+| :---- | :---- |
+| Description | *3–10 words summarizing what the agent does* |
+| :---- | :---- |
+| Team Name | *Your team’s name* |
+| :---- | :---- |
+| Team Members | *Names of all 3–5 team members* |
+| :---- | :---- |
+## **4a. Agent Summary**
+Write a summary paragraph describing the core functionality your agent provides. What does it do for learners/users? What’s the core loop of interaction? For each root cause or gap identified in your problem statement, include a paragraph on how the agent specifically addresses it. Be concrete about mechanisms/specific features and interactions that better address those root causes/gaps.
+\[Write your summary here\]
+## **4b. Data Sources**
+Your agent lives on CollaborAITE and has access to a RAG knowledge base (in addition to other RAG databases or other data sources you add). Describe which data sources your agent uses, what it extracts or infers from each, and how that data helps address the problem’s root cause.
+| CollaborAITE Data Sources |
+| :---- |
+| Check and describe each data source your agent will use: **Class slides and activities:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Channel conversations (these may/do include AI queries):** \[if applicable, briefly summarize how/what the agent uses this for?\] **User profile information:** \[if applicable, briefly summarize how/what the agent uses this for?\] **User-uploaded documents:** \[What additional context might learners/users have already provided or done before in the moment?\] **May not be provided by the system / platform (CollaborAITE):** **Prior assignments and reflections:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Anonymized session transcripts:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Also describe what the agent deliberately does NOT access and why** (privacy-by-design), one sentence for each. |
+| |
+## **4c. Other Data Sources**
+Your agent may benefit from data that is not already part of CollaborAITE’s knowledge base. If your design depends on external information, describe it here. Be specific about what the data is, where it comes from, and how you would get it into the system.
+| External Data Source Template (repeat as needed) |
+| :---- |
+| **Data source name and type:** \[e.g., Stack Overflow Q\&A posts, textbook chapter PDFs, department course catalog, curated research papers, external API data\] **What it contains:** \[Describe the content and structure of this data source\] **Why the agent needs it:** \[What capability or interaction does this data enable that CollaborAITE’s existing data cannot support?\] **How it would be added:** \[Would it be uploaded to the RAG knowledge base? Accessed via an API? Provided by the learner at interaction time? Curated by the instructor?\] **Freshness and maintenance:** \[Is this a one-time upload or does it need regular updates? Who is responsible for keeping it current?\] **Licensing and privacy:** \[Are there copyright, licensing, or privacy considerations? Is the data publicly available or restricted?\] |
+\[Describe any external data sources here, or write “None — our agent relies entirely on CollaborAITE’s existing data.” and describe why\]
+## **4d. Human-Agent Collaboration Flow**
+Create a task flow diagram showing the full interaction cycle between the learner and your agent. The diagram should show:
+- [ ] **What the user/learner does:** initiating the interaction, providing context, reviewing agent output, giving feedback
+- [ ] **What the agent does:** retrieving data from the RAG knowledge base, generating responses, presenting plans in threads, asking clarifying questions
+- [ ] **How they collaborate:** multi-turn refinement, learner control points, when the agent uses threaded plan displays, agent transparency about its reasoning
+Provide a link to an editable version of this diagram.
+\[Link to diagram: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\]
+## **4e. Example Interactions**
+Write 2–3 example @agent conversations showing realistic multi-turn exchanges on CollaborAITE. These should demonstrate different use cases or learner needs.
+| Interaction Template (repeat 2–3×) |
+| :---- |
+| **Scenario title:** A short name for this use case **Learner context:** What class is the learner in? What are they working on? What just happened? **Conversation:** @learner: \[what the learner types, including any documents or context they attach\] @YourAgent: \[agent response, noting any plan steps displayed in threads\] @learner: \[follow-up or feedback\] @YourAgent: \[refined response\] **Data sources used:** Which RAG data did the agent draw on? |
+**Interaction 1**
+\[Write your first example interaction here\]
+**Interaction 2**
+\[Write your second example interaction here\]
+**Interaction 3 (optional)**
+\[Write your third example interaction here\]
+## **4f. Harm Considerations**
+AI agents in learning contexts can cause real harm. Consider your agent’s specific domain and identify the most serious risks.
+| Harm Dimensions to Consider |
+| :---- |
+| **Accuracy harms:** Could the agent give wrong information? Hallucinate sources? Misrepresent course content? **Equity harms:** Could the agent work better for some learners/users than others? Whose language, culture, or learning style might it fail to serve? **Agency harms:** Could the agent make learners/users passive? Undermine their metacognition? Do the thinking for them? **Privacy harms:** The agent accesses learner reflections, conversations, and assignments. What could go wrong? **Trust harms:** Could learners/users over-trust or under-trust the agent? What happens when it’s wrong? |
+For your agent, describe the 2–3 most serious potential harms and how your design mitigates each:
+| Potential Harm | Likelihood | Design Safeguard | What If It Fails? |
+| :---- | :---- | :---- | :---- |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+## **5\. Technical Architecture and Design for the Agent**
+\[describe the features, platform, programming language, and other technical decisions. Describe the major modules and implementation plan across the different weeks to be built and used/piloted with users\]
+# **6\. Evaluation / Metrics of Success**
+*How do you know if you solved the problem?*
+Define what success looks like for your agent. This section guides both your design workshop (Day 5\) and your mini-evaluation with real learners/users (Days 6–7).
+## **5a. Success Criteria**
+What would need to be true for your agent to have “worked”? Define 2–3 concrete success criteria tied to the problem you identified.
+| Success Criteria Template |
+| :---- |
+| **Criterion 1:** \[e.g., learners/users can identify connections between lecture concepts they didn’t previously see\] **How you’d observe it:** \[e.g., In the evaluation, learners/users articulate at least one new connection after interacting with the agent\] **Criterion 2:** \[e.g., learners/users feel the agent respects their autonomy rather than doing their thinking for them\] **How you’d observe it:** \[e.g., Post-interaction survey question; observe whether learners/users rephrase agent output or copy it directly\] **Criterion 3:** \[e.g., The agent uses RAG data accurately and doesn’t hallucinate course content\] **How you’d observe it:** \[e.g., Manually check 5 agent responses against source materials\] |
+## **5b. Design Workshop Plan**
+Describe how you will present your agent to peers and collect structured feedback:
+- [ ] What will you demo or walk through?
+- [ ] What specific questions will you ask your peers?
+- [ ] How will you capture and organize the feedback?
+\[Describe your workshop plan here\]
+## **5c. Mini-Evaluation Plan**
+Describe how you will evaluate your prototype with 2–3 real learners/users on CollaborAITE:
+| Mini-Evaluation Plan Template |
+| :---- |
+| **Participants:** Who will you recruit? From which class? **Task:** What will you ask learners/users to do with the agent? Be specific. **Observation method:** Will you watch live? Review conversation logs? Both? **Feedback collection:** Short interview? Survey? Think-aloud? What questions will you ask? **Analysis:** How will you make sense of what you observe? What are you looking for? |
+\[Describe your evaluation plan here\]
+## **5c. Final Evaluation Plan**
+Describe how you will evaluate your AI Agent with the gathered user interaction logs (chats etc) from using your agent and/or other data and ways of gathering evaluation data.
+```
+**COS 598/498: Generative AI Agents**
+Agent Project Specification
+Spring 2026 · University of Maine
+# **Project teams are listed here: [S26 Project Groups and Problem/Agent topics:](https://docs.google.com/document/d/REDACTED/edit?tab=t.0) and are by reflection group**
+| Team | Problem/area |
+| :---- | :---- |
+| **Group 1** | **Neurodiversity Support Agent** |
+| **Group 2** | **Goal-Aligned Education Agent** |
+| **Group 3** | **Ethical Career Agent** |
+| **Group 4** | **Neurodiversity Support Agent** |
+| **Group 6** | **Personal AI Reflection Agent** |
+| **Group 7** | **Collaborative Learning Agent** |
+| **Group 9** | **Collaborative Learning Agent** |
+| **Group 10** | **AI Use Tutor** |
+# **Overview**
+In this project, your team will design, prototype, and evaluate an AI agent that lives on the CollaborAITE platform. CollaborAITE is designed to facilitate learning and using AI within a group and class learning context, similar to how Slack or Discord works, except you can also use AI and that use shows up in channels, which makes it easy to share, discuss, and reflect on AI use and how to do it better.
+Learners/users will interact with your agent by @mentioning it in channels, providing documents and context, and engaging in multi-turn dialogue.
+Your agent will be deployed and usable both for the class and for another class on the CollaborAITE platform, and the tools/data provided by that platform includes:
+1. User-uploaded and other class documents in a RAG database
+1. Can include anything uploaded by the user
+2. Will have class slides, activities, conversations in channels, group information
+3. All AI use on CollaborAITE happens within a channel, so your agent can also access prior AI interactions/history from users
+4. Will have information you request from the user (in a user profile “document”)
+5. Will have, if the students/users choose to share them:
+1. prior assignments including reading assignments, writing assignments
+2. student reflections over time
+3. anonymized class session transcripts
+2. Tools:
+1. Web search (similar to prior assignments)
+2. Asking the user for input
+3. Run a sub-agent with a prompt and any data you give it
+Thus, the users will be able to @\<your-AI-agent\> and provide data and prompt/input and do multiple rounds of interaction/dialogue. There will also be a way to display a plan to the user and separate doing each step of the plan (e.g. by organizing/showing the user each a step inside a thread).
+Beyond that, users can also provide other data source or information about themselves, your agent can use tools you write (such as web search, etc), etc.
+After making your specification (not a part of this assignment), your team will make a prototype of your agent using Claude Code and using Claude Code to help write skills for your agent, edit the skills, refine them, then prompt Claude Code. You will then evaluate your agent prototype by yourself and with users, get feedback, and redesign/refine their design.
+**Your group should contain 3–5 people.**
+Your specification should answer five core questions, each corresponding to a section of this document. The instructor will provide you with a mostly-completed draft problem specification to choose from. Your job is to refine that problem statement and complete the remaining sections.
+| The Five Core Questions |
+| :---- |
+| **1\. The Problem:** What are you trying to do? **2\. Why Bother:** Why is this problem important, and why should we care about solving it? **3\. Status Quo:** What are the current solutions and why do they fail? **4\. Your Proposed Agent:** If you had a solution, what would it look like? **5\. Evaluation / Metrics of Success:** How do you know if you solved the problem? |
+| This assignment schedule / steps |
+| :---- |
+| **During class April 9:** Complete a draft of your project specification. Refine the instructor-provided problem statement and fill in all sections below. **Before Class on April 14:** Build a working initial version of your project agent using Claude Code as development and design assistance. You can use the Claude Agents SDK for your project to lowe the technical difficulty (and the flexibility) or use Smolagents or DSPy. (E.G.) Claude Code writes agent skills for CollaborAITE; you edit and refine them. Feel free to use external tools ([https://langfuse.com/](https://langfuse.com/)) **In Class on April 14:** Troubleshooting this process; “open office hours” **before on April 16:** They use your working v1 agents and give feedkack Mini-evaluation with 2–3 real learners/users on CollaborAITE or via the web or other way you have for them to use your agent. **In class on April 16:** You process their feedback, revise your project specification, then iterate and build v2 over the weekend We will also cover security no no’s and the danger trifecta: Access to the internet (uncontrolled sources) Running prompts or code Access to secured/reviewed and validated data that needs to remain private **Before Class on April 21:** Build a working version 2 of your project agent using Claude Code as development and design assistance. .... **In Class on April 21** Troubleshooting this process; “open office hours” ; cover evaluation stuff Designing better evaluation / targeted tasks **On April 23:** They use your working v2 agents and give feedkack Mini-evaluation with 2–3 real learners/users on CollaborAITE. Observe, collect feedback, document what you learned. Revise your specification. **On April 23:** You process their feedback, revise your project specification, then iterate and build v2 over the weekend **April 28** \- reflect on this process, evaluation based on the data and usage data you have, and write some evaluation report, what to iterate on next, deicsion/recommendation on whether this agent should exist and be deployed **April 30** \- Open careers and other discussion for revising/improving this course |
+| Deliverables |
+| :---- |
+| Completed project specification (this document) Working prototype deployed on CollaborAITE (agent responds to @mentions) Design workshop feedback summary (1 page) Mini-evaluation report: what happened, what you learned, what you’d change (1–2 pages) Revised specification reflecting post-evaluation insights |
+# **1\. The Problem**
+*What are you trying to do?*
+| Problem Statement Template |
+| :---- |
+| **Step 1 — State the problem.** Describe a learning challenge that exists. Use one of these frames: (a) This bad thing happens in learning contexts (b) This good thing could happen for learners/users but doesn’t (c) This good thing should happen more in education **Step 2 — Concrete example.** Provide a specific, grounded example. Who is affected? What does it look like in practice? **Step 3 — Prior solutions.** Describe 1–2 existing approaches (tools, pedagogies, platforms) that partially address this problem. **Step 4 — Gap in prior solutions.** Explain what root cause or dimension of the problem prior solutions fail to address. Use one of these frames: Prior solutions don’t address this root cause Prior solutions don’t address this cause well because these reasons Prior solutions don’t address these multiple causes together **Step 5 — Design question.** Pose a question: How might an AI agent, with access to learning context and conversational interaction, address this gap? |
+| Important: No Solutions in the Problem |
+| :---- |
+| **Your problem statement should not refer to a solution.** Saying “a tool that does X doesn’t exist” is not a problem statement. That’s like motivating the need for Instagram by saying “The world is broken because it doesn’t have Instagram.” The problem motivating Instagram would be something like: “People love sharing photos, but all existing solutions for sharing them involve clumsy, impersonal file sharing.” |
+**Example Problem Statement**
+*The internet and social media platforms are often used as platforms to advance racist causes and racist hate speech. For example, Facebook’s most widely shared content are regularly the perspectives of racist commentators, and Twitter is often a place where Black Americans are harassed and bullied by white supremacists. Some social media platforms offer modest ways of mitigating the harm of racist speech, such as blocking people on Twitter or muting particular news sources, but these designs do little to eradicate racism itself. Within the constraints of the United States’ First Amendment, how can the internet become a place that not only prevents the spread of racist ideas, but also helps the people that believe those ideas overcome their racist bias?*
+**Your Problem Statement**
+\[Refine the instructor-provided areas/opporutnites shared with your group/chosen by your group here. Add your own examples, sharpen the gap analysis, etc.
+You may do several problem statements to help you choose among problems\]
+# **2\. Why Bother**
+*Why is this problem important, and why should we care about solving it?*
+Go beyond the problem statement to make a case for why this problem matters. Who is affected and how many? What are the consequences if the problem continues unsolved? Why is now the right time to address it, given what AI agents can do on a platform like CollaborAITE?
+| Guiding Questions |
+| :---- |
+| **Scale:** How many learners/users experience this problem? In what contexts (courses, levels, institutions)? **Consequences:** What happens when this problem goes unaddressed? What do learners/users lose? **Equity dimension:** Does this problem disproportionately affect certain learners/users? Which ones and why? **Timeliness:** Why is an AI agent well-positioned to help now? What about CollaborAITE’s data and interaction model makes this tractable? |
+**Your Motivation**
+\[Write 1–2 paragraphs making the case for why this problem is worth solving.\]
+# **3\. Status Quo**
+*What are the current solutions and why do they fail?*
+Run a deep research report to help you analyze existing solutions (tools, strategies, platforms, pedagogical approaches) that attempt to address the problem. For each, explain what it does, how learners/users interact with it, and where it falls short.
+| Prior Solution Template (repeat for 2–3 solutions) |
+| :---- |
+| **Solution name and type** Overview paragraph: What is this solution? How does it work? **How learners/users currently use it** A task flow diagram or step-by-step description of what the learner does with this solution. (If using a diagram, provide a link to an editable version.) **Where it falls short** What root cause does this solution not address? What about the user/learner experience and human-AI coordination is unsatisfying or problematic? **How your agent will differ** A short paragraph on what your agent does differently and why that matters. |
+**Prior Solution Category 1 (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+**Prior Solution Category 2 (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+...
+**Prior Solution Category: Exisitng AI Agents (with at least one concrete example of prior solution in this category)**
+\[Fill in\]
+# **4\. Your Proposed Agent**
+*If you had a solution, what would it look like?*
+| Agent Name | *A descriptive name for your agent* |
+| :---- | :---- |
+| Description | *3–10 words summarizing what the agent does* |
+| :---- | :---- |
+| Team Name | *Your team’s name* |
+| :---- | :---- |
+| Team Members | *Names of all 3–5 team members* |
+| :---- | :---- |
+## **4a. Agent Summary**
+Write a summary paragraph describing the core functionality your agent provides. What does it do for learners/users? What’s the core loop of interaction? For each root cause or gap identified in your problem statement, include a paragraph on how the agent specifically addresses it. Be concrete about mechanisms/specific features and interactions that better address those root causes/gaps.
+\[Write your summary here\]
+## **4b. Data Sources**
+Your agent lives on CollaborAITE and has access to a RAG knowledge base (in addition to other RAG databases or other data sources you add). Describe which data sources your agent uses, what it extracts or infers from each, and how that data helps address the problem’s root cause.
+| CollaborAITE Data Sources |
+| :---- |
+| Check and describe each data source your agent will use: **Class slides and activities:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Channel conversations (these may/do include AI queries):** \[if applicable, briefly summarize how/what the agent uses this for?\] **User profile information:** \[if applicable, briefly summarize how/what the agent uses this for?\] **User-uploaded documents:** \[What additional context might learners/users have already provided or done before in the moment?\] **May not be provided by the system / platform (CollaborAITE):** **Prior assignments and reflections:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Anonymized session transcripts:** \[if applicable, briefly summarize how/what the agent uses this for?\] **Also describe what the agent deliberately does NOT access and why** (privacy-by-design), one sentence for each. |
+| |
+## **4c. Other Data Sources**
+Your agent may benefit from data that is not already part of CollaborAITE’s knowledge base. If your design depends on external information, describe it here. Be specific about what the data is, where it comes from, and how you would get it into the system.
+| External Data Source Template (repeat as needed) |
+| :---- |
+| **Data source name and type:** \[e.g., Stack Overflow Q\&A posts, textbook chapter PDFs, department course catalog, curated research papers, external API data\] **What it contains:** \[Describe the content and structure of this data source\] **Why the agent needs it:** \[What capability or interaction does this data enable that CollaborAITE’s existing data cannot support?\] **How it would be added:** \[Would it be uploaded to the RAG knowledge base? Accessed via an API? Provided by the learner at interaction time? Curated by the instructor?\] **Freshness and maintenance:** \[Is this a one-time upload or does it need regular updates? Who is responsible for keeping it current?\] **Licensing and privacy:** \[Are there copyright, licensing, or privacy considerations? Is the data publicly available or restricted?\] |
+\[Describe any external data sources here, or write “None — our agent relies entirely on CollaborAITE’s existing data.” and describe why\]
+## **4d. Human-Agent Collaboration Flow**
+Create a task flow diagram showing the full interaction cycle between the learner and your agent. The diagram should show:
+- [ ] **What the user/learner does:** initiating the interaction, providing context, reviewing agent output, giving feedback
+- [ ] **What the agent does:** retrieving data from the RAG knowledge base, generating responses, presenting plans in threads, asking clarifying questions
+- [ ] **How they collaborate:** multi-turn refinement, learner control points, when the agent uses threaded plan displays, agent transparency about its reasoning
+Provide a link to an editable version of this diagram.
+\[Link to diagram: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\]
+## **4e. Example Interactions**
+Write 2–3 example @agent conversations showing realistic multi-turn exchanges on CollaborAITE. These should demonstrate different use cases or learner needs.
+| Interaction Template (repeat 2–3×) |
+| :---- |
+| **Scenario title:** A short name for this use case **Learner context:** What class is the learner in? What are they working on? What just happened? **Conversation:** @learner: \[what the learner types, including any documents or context they attach\] @YourAgent: \[agent response, noting any plan steps displayed in threads\] @learner: \[follow-up or feedback\] @YourAgent: \[refined response\] **Data sources used:** Which RAG data did the agent draw on? |
+**Interaction 1**
+\[Write your first example interaction here\]
+**Interaction 2**
+\[Write your second example interaction here\]
+**Interaction 3 (optional)**
+\[Write your third example interaction here\]
+## **4f. Harm Considerations**
+AI agents in learning contexts can cause real harm. Consider your agent’s specific domain and identify the most serious risks.
+| Harm Dimensions to Consider |
+| :---- |
+| **Accuracy harms:** Could the agent give wrong information? Hallucinate sources? Misrepresent course content? **Equity harms:** Could the agent work better for some learners/users than others? Whose language, culture, or learning style might it fail to serve? **Agency harms:** Could the agent make learners/users passive? Undermine their metacognition? Do the thinking for them? **Privacy harms:** The agent accesses learner reflections, conversations, and assignments. What could go wrong? **Trust harms:** Could learners/users over-trust or under-trust the agent? What happens when it’s wrong? |
+For your agent, describe the 2–3 most serious potential harms and how your design mitigates each:
+| Potential Harm | Likelihood | Design Safeguard | What If It Fails? |
+| :---- | :---- | :---- | :---- |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+| *\[Describe harm\]* | *\[Low/Med/High\]* | *\[How your design prevents this\]* | *\[What happens if the safeguard fails?\]* |
+## **5\. Technical Architecture and Design for the Agent**
+\[describe the features, platform, programming language, and other technical decisions. Describe the major modules and implementation plan across the different weeks to be built and used/piloted with users\]
+# **6\. Evaluation / Metrics of Success**
+*How do you know if you solved the problem?*
+Define what success looks like for your agent. This section guides both your design workshop (Day 5\) and your mini-evaluation with real learners/users (Days 6–7).
+## **5a. Success Criteria**
+What would need to be true for your agent to have “worked”? Define 2–3 concrete success criteria tied to the problem you identified.
+| Success Criteria Template |
+| :---- |
+| **Criterion 1:** \[e.g., learners/users can identify connections between lecture concepts they didn’t previously see\] **How you’d observe it:** \[e.g., In the evaluation, learners/users articulate at least one new connection after interacting with the agent\] **Criterion 2:** \[e.g., learners/users feel the agent respects their autonomy rather than doing their thinking for them\] **How you’d observe it:** \[e.g., Post-interaction survey question; observe whether learners/users rephrase agent output or copy it directly\] **Criterion 3:** \[e.g., The agent uses RAG data accurately and doesn’t hallucinate course content\] **How you’d observe it:** \[e.g., Manually check 5 agent responses against source materials\] |
+## **5b. Design Workshop Plan**
+Describe how you will present your agent to peers and collect structured feedback:
+- [ ] What will you demo or walk through?
+- [ ] What specific questions will you ask your peers?
+- [ ] How will you capture and organize the feedback?
+\[Describe your workshop plan here\]
+## **5c. Mini-Evaluation Plan**
+Describe how you will evaluate your prototype with 2–3 real learners/users on CollaborAITE:
+| Mini-Evaluation Plan Template |
+| :---- |
+| **Participants:** Who will you recruit? From which class? **Task:** What will you ask learners/users to do with the agent? Be specific. **Observation method:** Will you watch live? Review conversation logs? Both? **Feedback collection:** Short interview? Survey? Think-aloud? What questions will you ask? **Analysis:** How will you make sense of what you observe? What are you looking for? |
+\[Describe your evaluation plan here\]
+## **5c. Final Evaluation Plan**
+Describe how you will evaluate your AI Agent with the gathered user interaction logs (chats etc) from using your agent and/or other data and ways of gathering evaluation data.
+```
+Now output the prompt (DO NOT DO THE SPECIFCIATION)
+
+
+  use this prompt to generate a problme specification for group 10
