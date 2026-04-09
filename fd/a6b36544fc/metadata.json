@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.4.9",
+  "checkpoint_id": "fda6b36544fc",
+  "strategy": "manual-commit",
+  "branch": "master",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "research/deep-research-prompt.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/fd/a6b36544fc/0/metadata.json",
+      "transcript": "/fd/a6b36544fc/0/full.jsonl",
+      "context": "/fd/a6b36544fc/0/context.md",
+      "content_hash": "/fd/a6b36544fc/0/content_hash.txt",
+      "prompt": "/fd/a6b36544fc/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 406060,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 4584,
+    "api_call_count": 10
+  }
+}
